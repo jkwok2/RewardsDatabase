@@ -72,7 +72,7 @@
 </form>
 
 <?php
-require('controller.php');
+require_once 'controller.php';
 ?>
 </body>
 </html>
