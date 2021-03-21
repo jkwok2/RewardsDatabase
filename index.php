@@ -72,7 +72,7 @@
 </form>
 
 <?php
-require('ora-controller.php');
+require('controller.php');
 ?>
 </body>
 </html>
