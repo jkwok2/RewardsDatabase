@@ -10,10 +10,10 @@
     <h2>
         Choose an option
     </h2>
-    <h3><a href="content/account.php">Administrate Accounts</a></h3>
-    <h3><a href="content/member.php">Administrate Members</a></h3>
-    <h3><a href="content/point.php"> Points Business Analytics</a></h3>
-    <h3><a href="content/transaction.php">Transactions Business Analytics</a></h3>
-    <h3><a href="content/reward.php">Rewards Business Analytics</a></h3>
+    <h3><a href="account.php">Administrate Accounts</a></h3>
+    <h3><a href="member.php">Administrate Members</a></h3>
+    <h3><a href="point.php"> Points Business Analytics</a></h3>
+    <h3><a href="transaction.php">Transactions Business Analytics</a></h3>
+    <h3><a href="reward.php">Rewards Business Analytics</a></h3>
 </body>
 <?php
