@@ -1,5 +1,5 @@
 <html>
     <?php
-    require('../backButton.php');
+    require(__DIR__.'/../backButton.php');
     ?>
 </html>
