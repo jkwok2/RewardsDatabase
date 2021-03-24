@@ -79,9 +79,7 @@ See the sample code below for how this function is used */
 
 function printResult($result)
 { //prints results from a select statement
-    echo "<br>Retrieved data from table demoTable:<br>";
     echo "<table>";
-    echo "<tr><th>ID</th><th>Name</th></tr>";
 
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
         echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["NAME"] . "</td></tr>"; //or just use "echo $row[0]"
