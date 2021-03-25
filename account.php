@@ -27,12 +27,16 @@ require 'util.php';
         <input type="text" size="40" name="accountID"></p>
     <input type="submit" value="Delete account and associated data" name="deleteAccount">
 </form>
-
+<hr />
 <!--resulting output from forms will appear here-->
 <h3>Output</h3>
 <?php
 require 'account-controller.php';
 ?>
+
+<br />
+<br />
+<br />
 
 <?php
 require 'backButton.php';
