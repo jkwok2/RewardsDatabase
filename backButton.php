@@ -1,1 +1,3 @@
-<button onclick="history.go(-1);">Back </button>
+<form method="GET" action="index.php">
+    <input type="submit" name="Back to main menu"></p>
+</form>

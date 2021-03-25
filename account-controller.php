@@ -16,6 +16,21 @@ function handleDisplayAccountMembersRequest() {
     echo "handleDisplayAccountMembersRequest";
 }
 
+function handleDeleteAccountRequest() {
+    echo "handleDeleteAccountRequest";
+}
+
+// HANDLE ALL POST ROUTES
+// A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
+function handlePOSTRequest() {
+    if (connectToDB()) {
+        if (array_key_exists('deleteAccountRequest', $_POST)) {
+            handleDeleteAccountRequest();
+        }
+        disconnectFromDB();
+    }
+}
+
 // HANDLE ALL GET ROUTES
 // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
 function handleGETRequest() {
@@ -32,7 +47,7 @@ function handleGETRequest() {
     }
 }
 
-if (isset($_POST['reset']) || isset($_POST['updateSubmit']) || isset($_POST['insertSubmit'])) {
+if (isset($_POST['deleteAccount'])) {
     handlePOSTRequest();
 } else if (isset($_GET['displayAccountRequest']) || isset($_GET['displayTupleRequest'])) {
     handleGETRequest();
