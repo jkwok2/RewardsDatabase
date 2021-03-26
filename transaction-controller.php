@@ -1,12 +1,5 @@
 <?php
 require_once 'util.php';
-function handleDisplayRequest() {
-    global $db_conn;
-
-    $result = executePlainSQL("SELECT * FROM demoTable");
-
-    printResult($result);
-}
 
 function handleDisplayTransactionRequest() {
     echo "handleDisplayTransactionRequest";
@@ -31,10 +24,10 @@ function handlePOSTRequest() {
 // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
 function handleGETRequest() {
     if (connectToDB()) {
-        if (array_key_exists('displayAccountDetails', $_GET)) {
-            handleDisplayAccountDetailsRequest();
-        } else if (array_key_exists('displayTuples', $_GET)) {
-            handleDisplayRequest();
+        if (array_key_exists('displayTransactions', $_GET)) {
+            handleDisplayTransactionRequest();
+        } else if (array_key_exists('displayAdvancedTransactions', $_GET)) {
+            handleDisplayAdvancedTransactionRequest();
         } else if (array_key_exists('displayAccountMembers', $_GET)) {
             handleDisplayAccountMembersRequest();
         }
@@ -45,7 +38,7 @@ function handleGETRequest() {
 
 if (isset($_POST['deleteAccount'])) {
     handlePOSTRequest();
-} else if (isset($_GET['displayAccountRequest']) || isset($_GET['displayTupleRequest'])) {
+} else if (isset($_GET['displayTransactionRequest']) || isset($_GET['displayAdvancedTransactionRequest'])) {
     handleGETRequest();
 }
 ?>

@@ -1,12 +1,5 @@
 <?php
 require_once 'util.php';
-function handleDisplayRequest() {
-    global $db_conn;
-
-    $result = executePlainSQL("SELECT * FROM demoTable");
-
-    printResult($result);
-}
 
 function handleUpdateMemberRequest() {
     echo "handleUpdateMemberRequest";
