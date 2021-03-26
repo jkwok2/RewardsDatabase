@@ -31,6 +31,7 @@ function handleGETRequest() {
 }
 
 if (isset($_POST['updateMemberRequest'])) {
+    echo 'handlepostrequest';
     handlePOSTRequest();
 }
 //else if (isset($_GET['displayAccountRequest']) || isset($_GET['displayTupleRequest'])) {
