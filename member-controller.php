@@ -9,7 +9,7 @@ function handleUpdateMemberRequest() {
 // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
 function handlePOSTRequest() {
     if (connectToDB()) {
-        if (array_key_exists('updateMemberRequest', $_POST)) {
+        if (array_key_exists('updateMember', $_POST)) {
             handleUpdateMemberRequest();
         }
         disconnectFromDB();
@@ -30,7 +30,7 @@ function handleGETRequest() {
 //    }
 }
 
-if (isset($_POST['updateMember'])) {
+if (isset($_POST['updateMemberRequest'])) {
     handlePOSTRequest();
 }
 //else if (isset($_GET['displayAccountRequest']) || isset($_GET['displayTupleRequest'])) {

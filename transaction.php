@@ -21,6 +21,7 @@ require 'util.php';
             <option value="other">other</option>
         </select>
     </p>
+    <input type="submit" value="View filtered transactions" name="displayTransactions">
 </form>
 
 <hr />
