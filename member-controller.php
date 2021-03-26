@@ -9,9 +9,7 @@ function handleUpdateMemberRequest() {
 // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
 function handlePOSTRequest() {
     if (connectToDB()) {
-        echo "connect to db post";
         if (array_key_exists('updateMemberRequest', $_POST)) {
-            echo "call updatememberrequest";
             handleUpdateMemberRequest();
         }
         disconnectFromDB();
