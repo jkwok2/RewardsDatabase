@@ -11,31 +11,19 @@ require 'util.php';
         <input type="text" size="40" name="accountID"></p>
     <p>Enter the member's new information (blank values are ignored)</p>
     <p>New email address:
-        <input type="text" size="40" name="accountID"></p>
+        <input type="text" size="40" name="emailAddress"></p>
     <p>New phone number:
-        <input type="text" size="40" name="accountID"></p>
-    <p>New :
-        <input type="text" size="40" name="accountID"></p>
+        <input type="text" size="40" name="phoneNumber"></p>
 
-    <input type="submit" value="Update" name="updateSubmit"></p>
+    <input type="submit" value="updateMember" name="Update member details"></p>
 </form>
 
-<hr />
-
-<h2>Delete Account</h2>
-<form method="post">
-    <p><b>WARNING: this will delete ALL associated member, credit card, and transaction data</b></p>
-    <p>Enter account ID to delete:
-        <input type="hidden" id="deleteAccountRequest" name="deleteAccountRequest">
-        <input type="text" size="40" name="accountID"></p>
-    <input type="submit" value="Delete account and ALL associated data" name="deleteAccount">
-</form>
 <hr />
 <hr />
 <!--resulting output from forms will appear here-->
 <h3>Output</h3>
 <?php
-require 'account-controller.php';
+require 'member-controller.php';
 ?>
 
 <br />
