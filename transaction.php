@@ -12,20 +12,15 @@ require 'util.php';
     <input type="text" size="40" name="accountIDFilter"></p>
     <p>Filter by merchant name:
     <input type="text" size="40" name="merchantNameFilter"></p>
-    <p>Filter by transaction type</p>
-    <select name="transactionType" id="transactionTypeFilter">
-        <option value=""></option>
-        <option value="purchase">purchase</option>
-        <option value="return">return</option>
-        <option value="exchange">exchange</option>
-        <option value="other">other</option>
-    </select>
-    <p>Filter by transaction date</p>
-    <input type="text" size="40" name="dateFilterInput"></p>
-    <input type="radio" name="dateFilter" value="On exact date">
-    <input type="radio" name="dateFilter" value="Before date">
-    <input type="radio" name="dateFilter" value="After date">
-    <input type="submit" value="View filtered transactions" name="displayTransactions">
+    <p>Filter by transaction type:
+        <select name="transactionType" id="transactionTypeFilter">
+            <option value=""></option>
+            <option value="purchase">purchase</option>
+            <option value="return">return</option>
+            <option value="exchange">exchange</option>
+            <option value="other">other</option>
+        </select>
+    </p>
 </form>
 
 <hr />
