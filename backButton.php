@@ -1,5 +1,1 @@
-<html>
-    <form action="index.php">
-        <input type="submit" value="Back to main menu" name="goToIndex></p>
-    </form>
-</html>
+<a href="index.php"><button>Back to main menu</button></a>
