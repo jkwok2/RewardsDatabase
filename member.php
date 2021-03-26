@@ -27,8 +27,6 @@ require 'member-controller.php';
 ?>
 
 <br />
-<br />
-<br />
 
 <?php
 require 'backButton.php';
