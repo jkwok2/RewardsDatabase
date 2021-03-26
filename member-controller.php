@@ -10,7 +10,7 @@ function handleUpdateMemberRequest() {
 function handlePOSTRequest() {
     if (connectToDB()) {
         echo "connect to db post";
-        if (array_key_exists('updateMember', $_POST)) {
+        if (array_key_exists('updateMemberRequest', $_POST)) {
             echo "call updatememberrequest";
             handleUpdateMemberRequest();
         }
