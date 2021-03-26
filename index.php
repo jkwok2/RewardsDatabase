@@ -12,8 +12,8 @@
     </h2>
     <h3><a href="account.php">Administrate Accounts</a></h3>
     <h3><a href="member.php">Administrate Members</a></h3>
-    <h3><a href="point.php"> Points Business Analytics</a></h3>
-    <h3><a href="transaction.php">Transactions Business Analytics</a></h3>
-    <h3><a href="reward.php">Rewards Business Analytics</a></h3>
+<!--    <h3><a href="point.php"> Points Business Analytics</a></h3>-->
+    <h3><a href="transaction.php">Analyze Transactions</a></h3>
+<!--    <h3><a href="reward.php">Rewards Business Analytics</a></h3>-->
 </body>
 <?php

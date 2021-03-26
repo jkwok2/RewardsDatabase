@@ -5,8 +5,8 @@ require 'util.php';
 <h1>Transaction Analyzer</h1>
 
 <h2>Filter and View Transactions</h2>
-<form method="get">
-    <input type="hidden" id="displayAccountRequest" name="displayAccountRequest">
+<form method="get" action="transaction.php">
+    <input type="hidden" id="displayTransactionRequest" name="displayTransactionRequest">
     <p>Use the following options below to filter your result (blank values are ignored)</p>
     <p>Filter by account id:
     <input type="text" size="40" name="accountIDFilter"></p>
@@ -25,17 +25,16 @@ require 'util.php';
     <input type="radio" name="dateFilter" value="On exact date">
     <input type="radio" name="dateFilter" value="Before date">
     <input type="radio" name="dateFilter" value="After date">
+    <input type="submit" value="View filtered transactions" name="displayTransactions">
 </form>
 
 <hr />
 
 <h2>Advanced filter options</h2>
-<form method="post">
-    <p><b>WARNING: this will delete ALL associated member, credit card, and transaction data</b></p>
-    <p>Enter account ID to delete:
-        <input type="hidden" id="deleteAccountRequest" name="deleteAccountRequest">
-        <input type="text" size="40" name="accountID"></p>
-    <input type="submit" value="Delete account and associated data" name="deleteAccount">
+<form method="get" action="transaction.php">
+        <input type="hidden" id="displayAdvancedTransactionRequest" name="displayAdvancedTransactionRequest">
+    <p><b>//TODO: determine what kinds of filters to add here for join, division, etc</b></p>
+    <input type="submit" value="View filtered transactions" name="displayAdvancedTransactions">
 </form>
 
 <hr />

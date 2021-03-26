@@ -27,9 +27,9 @@ require 'util.php';
 
 <h2>Delete Account</h2>
 <form method="post">
+    <input type="hidden" id="deleteAccountRequest" name="deleteAccountRequest">
     <p><b>WARNING: this will delete ALL associated member, credit card, and transaction data</b></p>
     <p>Enter account ID to delete:
-        <input type="hidden" id="deleteAccountRequest" name="deleteAccountRequest">
         <input type="text" size="40" name="accountID"></p>
     <input type="submit" value="Delete account and associated data" name="deleteAccount">
 </form>
