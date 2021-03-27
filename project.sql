@@ -12,17 +12,17 @@ drop table FillsOut cascade constraints;
 drop table Transaction cascade constraints;
 
 create table Account1(
-    accountID           char(10) primary key,
+    accountID           varchar(10) primary key,
     pointBalance        integer  not null,
     streetAddress       varchar(100),
     city                varchar(50),
-    postalCode          char(10),
+    postalCode          varchar(10),
     country             varchar(50)
 );
 grant select on Account1 to public;
 
 create table Account2(
-    postalCode          char(10),
+    postalCode          varchar(10),
     country             varchar(50),
     provinceState       varchar(50),
     primary key (postalCode, country)
@@ -30,9 +30,9 @@ create table Account2(
 grant select on Account2 to public;
 
 create table CreditCard1(
-    creditCardID        char(10) primary key,
+    creditCardID        varchar(10) primary key,
     creditCardNum       char(16) unique not null,
-    accountID           char(10) not null,
+    accountID           varchar(10) not null,
     expirationDate      DATE,
     foreign key (accountID) references Account1(accountID) ON DELETE CASCADE
 );
@@ -40,36 +40,27 @@ grant select on CreditCard1 to public;
 
 create table CreditCard2(
     creditCardNum       char(16) primary key,
-    cardType            char(30),
-    cardIssuer          char(30)
+    cardType            varchar(30),
+    cardIssuer          varchar(30)
 );
 grant select on CreditCard2 to public;
 
 create table Member(
-    memberID           char(10) unique,
-    accountID          char(10),
+    memberID           varchar(10) unique,
+    accountID          varchar(10),
     memberName         varchar(50),
     email              varchar(50) unique not null,
     phone              varchar(50) not null, 
     birthDate          date,
-    referrerID         char(10),
+    referrerID         varchar(10),
     primary key (memberID, accountID),
     foreign key (accountID) references Account1(accountID),
     foreign key (referrerID) references Member(memberID)      
 );
 grant select on Member to public;
 
-create table SupplementaryMember(
-    memberID          char(10),
-    accountID         char(10),
-    primaryMemberID   char(10),
-    primary key (memberID, accountID, primaryMemberID),
-    foreign key (memberID, accountID, primaryMemberID) references Member(memberID, accountID, memberID)
-);
-grant select on SupplementaryMember to public;
-
 create table Merchant(
-    merchantID       char(10) primary key,
+    merchantID       varchar(10) primary key,
     merchantName     varchar(30) not null,
     joinDate         date,
     defaultRate      decimal(6,2) not null
@@ -77,8 +68,8 @@ create table Merchant(
 grant select on Merchant to public;
 
 create table PromotionOffers(
-    promotionID      char(10) primary key,
-    merchantID       char(10),
+    promotionID      varchar(10) primary key,
+    merchantID       varchar(10),
     promotionRate    decimal(6,2) not null,
     startDate        date,
     endDate          date,
@@ -87,17 +78,17 @@ create table PromotionOffers(
 grant select on PromotionOffers to public;
 
 create table Reward(
-    rewardID           char(10) primary key,
+    rewardID           varchar(10) primary key,
     pointCost          integer  not null,
-    rewardCategory     char(30),
+    rewardCategory     varchar(30),
     rewardDescription  varchar(100) not null
 );
 grant select on Reward to public;
 
 create table Redeems(
-    rewardID          char(10),
-    accountID         char(10),
-    memberID          char(10),
+    rewardID          varchar(10),
+    accountID         varchar(10),
+    memberID          varchar(10),
     dateTime          timestamp not null,
     primary key (rewardID, accountID, memberID),
     foreign key (rewardID) references Reward(rewardID),
@@ -106,16 +97,16 @@ create table Redeems(
 grant select on Redeems to public;
 
 create table Survey(
-    surveyID         char(10) primary key,
+    surveyID         varchar(10) primary key,
     pointsValue      integer  not null,
     expirationDate   date
 );
 grant select on Survey to public;
 
 create table FillsOut(
-    accountID        char(10),
-    memberID         char(10),
-    surveyID         char(10),
+    accountID        varchar(10),
+    memberID         varchar(10),
+    surveyID         varchar(10),
     dateTime         timestamp not null,
     primary key (accountID, memberID, surveyID),
     foreign key (memberID, accountID) references Member(memberID, accountID),
@@ -124,13 +115,13 @@ create table FillsOut(
 grant select on FillsOut to public;
 
 create table Transaction(
-    transactionID     char(10) primary key,
-    promotionID       char(10),
-    merchantID        char(10),
-    merchantName      char(50)     not null,
-    accountID         char(10)     not null,
+    transactionID     varchar(10) primary key,
+    promotionID       varchar(10),
+    merchantID        varchar(10),
+    merchantName      varchar(50)     not null,
+    accountID         varchar(10)     not null,
     dateTime          timestamp    not null,
-    type              char(20)     not null,
+    type              varchar(20)     not null,
     pointsValue       integer      not null,
     transactionAmount decimal(6,2) not null,
     foreign key (promotionID) references PromotionOffers(promotionID),
@@ -182,14 +173,6 @@ into Member (memberID, accountID, memberName, email, phone, birthDate, referrerI
 into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1008', 'A1001', 'John Smith', 'johnsmith@gmail.com', '202-791-2248', DATE '2000-07-27', null)
 into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1009', 'A1002', 'Alison Liu', 'alison.liu@gmail.com','281-791-2248', DATE '1998-03-13', 'M1007')
 into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1010', 'A1004', 'David Barrett', 'david.barrett@gmail.com', '908-992-2248', DATE '1995-06-13', 'M1001')
-select * from dual;
-
-insert all
-into Merchant (merchantID, merchantName, joinDate, defaultRate) values ('MC1001', 'Lululemon', DATE '2019-12-20', 0.2)
-into Merchant (merchantID, merchantName, joinDate, defaultRate) values ('MC1002', 'Starbucks', DATE '2021-01-15', 0.1)
-into Merchant (merchantID, merchantName, joinDate, defaultRate) values ('MC1003', 'SportChek', DATE '2020-05-01', 0.8)
-into Merchant (merchantID, merchantName, joinDate, defaultRate) values ('MC1004', 'Ikea', DATE '2020-08-01', 1.5)
-into Merchant (merchantID, merchantName, joinDate, defaultRate) values ('MC1005', 'Home Depot', DATE '2020-09-01', 0.5)
 select * from dual;
 
 insert all
