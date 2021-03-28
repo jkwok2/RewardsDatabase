@@ -89,6 +89,8 @@ function printResult($result)
 //        echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["NAME"] . "</td></tr>"; //or just use "echo $row[0]"
         $rowResult = "<tr><td>";
         while ($cell = OCI_Fetch_Array($row, OCI_BOTH)) {
+            echo "cell is " . $cell;
+            echo "cell[0] is " . $cell[0];
             $rowResult .= $cell[0] . "</td><td>";
         }
         $rowResult .= "</td></tr>";
