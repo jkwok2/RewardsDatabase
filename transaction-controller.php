@@ -4,7 +4,15 @@ require_once 'util.php';
 function handleDisplayTransactionRequest() {
     global $db_conn;
 
-    echo array_keys ($_POST);
+
+    $postKeys = array_keys($_POST);
+
+    echo $postKeys;
+
+    foreach($postKeys as $postKey) {
+        echo $postKey . '/n';
+    }
+
     echo 'echoing post keys';
     foreach($_POST as $key=>$value)
     {
@@ -17,9 +25,9 @@ function handleDisplayTransactionRequest() {
         echo 'accountID input NOT EMPTY is ' . $accountIDFilter;
     }
     $merchantNameFilter = $_POST['merchantNameFilter'];
-    echo 'transactionTypeFilter input is ' . $merchantNameFilter;
+    echo 'merchantNameFilter input is ' . $merchantNameFilter;
     if(!empty($merchantNameFilter)) {
-        echo 'transactionTypeFilter NOT EMPTY input is ' . $merchantNameFilter;
+        echo 'merchantNameFilter NOT EMPTY input is ' . $merchantNameFilter;
     }
     $transactionTypeFilter = $_POST['transactionTypeFilter'];
     echo 'transactionTypeFilter input is ' . $transactionTypeFilter;
