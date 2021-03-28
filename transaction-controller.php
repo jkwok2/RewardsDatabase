@@ -4,21 +4,29 @@ require_once 'util.php';
 function handleDisplayTransactionRequest() {
     global $db_conn;
 
-//    $cmdstr = "SELECT COUNT(*) FROM Transaction";
-    echo "calling handleDisplayTransactionRequest";
-    echo "";
-    $result = executePlainSQL("SELECT * FROM Transaction");
-    printResult($result);
-    echo "";
-    echo "called handleDisplayTransactionRequest";
-    echo "";
-    $result = executePlainSQL("SELECT * FROM demoTable");
-    printResult($result);
-    echo "";
-    echo "calling projected table";
-    echo "";
-    $result = executePlainSQL("SELECT memberName, email, phone FROM Member");
-    printResult($result);
+    if(empty($_POST['accountIDFilter'])) {
+        echo 'accountID input is ' . $_POST['accountIDFilter'];
+    }
+    if(empty($_POST['merchantNameFilter'])) {
+        echo 'transactionTypeFilter input is ' . $_POST['merchantNameFilter'];
+    }
+    if(empty($_POST['transactionTypeFilter'])) {
+        echo 'transactionTypeFilter input is ' . $_POST['transactionTypeFilter'];
+    }
+//    echo "calling handleDisplayTransactionRequest";
+//    echo "";
+//    $result = executePlainSQL("SELECT * FROM Transaction");
+//    printResult($result);
+//    echo "";
+//    echo "called handleDisplayTransactionRequest";
+//    echo "";
+//    $result = executePlainSQL("SELECT * FROM demoTable");
+//    printResult($result);
+//    echo "";
+//    echo "calling projected table";
+//    echo "";
+//    $result = executePlainSQL("SELECT memberName, email, phone FROM Member");
+//    printResult($result);
 }
 
 function handleDisplayAdvancedTransactionRequest() {
