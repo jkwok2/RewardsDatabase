@@ -12,7 +12,7 @@ require 'util.php';
 <hr />
 <hr />
 
-<h1>Account Administration</h1>
+<h1>Account Administration (Test)</h1>
 
 <h2>View Account Details</h2>
 <form method="get">

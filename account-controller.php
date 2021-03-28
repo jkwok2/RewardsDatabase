@@ -3,7 +3,7 @@ require_once 'util.php';
 function handleDisplayRequest() {
     global $db_conn;
 
-    $result = executePlainSQL("SELECT * FROM demoTable");
+    $result = executePlainSQL("SELECT * FROM Account1");
 
     printResult($result);
 }
