@@ -7,8 +7,8 @@ require 'util.php';
 <h2>Filter and View Transactions</h2>
 <form method="get" action="transaction.php">
     <input type="hidden" id="displayTransactionRequest" name="displayTransactionRequest">
-    <p>Use the following options below to filter your result</p>
-    <p>Instructions: values are case-sensitive! Multiple filters can be applied at once. Blank values are ignored)</p>
+    <p>Use the options below to filter your result<br/>
+        <b>Instructions: values are case-sensitive! Multiple filters can be applied at once. Blank values are ignored.</b></p>
     <p>Filter by account id:
     <input type="text" size="40" name="accountIDFilter"></p>
     <p>Filter by merchant name:
