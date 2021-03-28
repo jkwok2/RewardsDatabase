@@ -85,12 +85,10 @@ function printResult($result)
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
 //        echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["NAME"] . "</td></tr>"; //or just use "echo $row[0]"
 
-        echo $row .= "/n";
-
         $rowResult = "<tr><td>";
 
         $keys = array_keys($row);
-
+        $rowResult .= count($keys) . "</td><td>";
         for($i=0; $i < count($keys); $i+=2) {
             $rowResult .= $row[$keys[$i]] . "</td><td>";
         }
