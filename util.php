@@ -90,7 +90,7 @@ function printResult($result)
         $keys = array_keys($row);
 
         for($i=0; $i < count($keys); $i++) {
-//            $rowResult .= $row[$keys[$i]] . "</td><td>";
+            $rowResult .= $row[$keys[$i]] . "</td><td>";
         }
 
 
