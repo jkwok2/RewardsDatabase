@@ -22,6 +22,7 @@ function executePlainSQL($cmdstr)
 
     $statement = OCIParse($db_conn, $cmdstr);
     //There are a set of comments at the end of the file that describe some of the OCI specific functions and how they work
+    echo $statement;
 
     if (!$statement) {
         echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
@@ -31,12 +32,15 @@ function executePlainSQL($cmdstr)
     }
 
     $r = OCIExecute($statement, OCI_DEFAULT);
+    echo $r;
+
     if (!$r) {
         echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
         $e = oci_error($statement); // For OCIExecute errors pass the statementhandle
         echo htmlentities($e['message']);
         $success = False;
     }
+    echo $statement;
 
     return $statement;
 }
