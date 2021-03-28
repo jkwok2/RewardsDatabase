@@ -5,7 +5,7 @@ function handleDisplayTransactionRequest() {
     global $db_conn;
 
 //    $cmdstr = "SELECT COUNT(*) FROM Transaction";
-    $result = executePlainSQL("SELECT COUNT(*) FROM Transaction");
+    $result = executePlainSQL("SELECT * FROM Transaction");
     printResult($result);
     echo "handleDisplayTransactionRequest";
     echo "";
