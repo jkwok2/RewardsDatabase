@@ -81,10 +81,17 @@ function printResult($result)
 { //prints results from a select statement
     echo "<table>";
 
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-        echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["NAME"] . "</td></tr>"; //or just use "echo $row[0]"
-    }
+    while ($row = OCI_Fetch_Array($result, OCI_RETURN_NULLS)) {
+        $rowResult = "<tr><td>";
+        $keys = array_keys($row);
 
+        for($i=0; $i < count($keys); $i+=2) {
+            $rowResult .= $row[$keys[$i]] . "</td><td>";
+        }
+
+        $rowResult .= "</td></tr>";
+        echo $rowResult;
+    }
     echo "</table>";
 }
 
