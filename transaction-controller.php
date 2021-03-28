@@ -29,14 +29,14 @@ function handleDisplayTransactionRequest() {
     if(!empty($merchantNameFilter)) {
         echo 'merchantNameFilter NOT EMPTY input is ' . $merchantNameFilter . '<br/>';
     }
-    $transactionTypeFilter = $_GET['transactionTypeFilter'];
+    $transactionTypeFilter = $_GET['transactionType'];
     echo 'transactionTypeFilter input is ' . $transactionTypeFilter . '<br/>';
     if(!empty($transactionTypeFilter)) {
         echo 'transactionTypeFilter NOT EMPTY input is ' . $transactionTypeFilter . '<br/>';
     }
 //    echo "calling handleDisplayTransactionRequest";
 //    echo "";
-    $result = executePlainSQL("SELECT * FROM Transaction WHERE");
+    $result = executePlainSQL("SELECT * FROM Transaction");
     printResult($result);
 //    echo "";
 //    echo "called handleDisplayTransactionRequest";

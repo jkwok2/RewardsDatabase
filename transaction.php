@@ -13,7 +13,7 @@ require 'util.php';
     <p>Filter by merchant name:
     <input type="text" size="40" name="merchantNameFilter"></p>
     <p>Filter by transaction type:
-        <select name="transactionType" id="transactionTypeFilter">
+        <select name="transactionTypeFilter" id="transactionTypeFilter">
             <option value=""></option>
             <option value="purchase">purchase</option>
             <option value="return">return</option>
