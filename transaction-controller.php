@@ -2,6 +2,8 @@
 require_once 'util.php';
 
 function handleDisplayTransactionRequest() {
+    global $db_conn;
+
     $cmdstr = "SELECT * FROM Transaction";
     $result = executePlainSQL($cmdstr);
     echo($result);
