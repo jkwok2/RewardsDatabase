@@ -5,10 +5,14 @@ function handleDisplayTransactionRequest() {
     global $db_conn;
 
 //    $cmdstr = "SELECT COUNT(*) FROM Transaction";
+    echo "calling handleDisplayTransactionRequest";
+    echo "";
     $result = executePlainSQL("SELECT * FROM Transaction");
     printResult($result);
-    echo "handleDisplayTransactionRequest";
     echo "";
+    echo "called handleDisplayTransactionRequest";
+    echo "";
+    $result = executePlainSQL("SELECT * FROM demoTable");
 
     printResult($result);
 }
