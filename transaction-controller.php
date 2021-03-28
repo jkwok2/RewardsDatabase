@@ -50,7 +50,7 @@ function handleDisplayTransactionRequest() {
             $result .= ' AND ' . $whereFilterArray[$i];
         }
     }
-
+    echo $result;
 
     printResult($result);
 //    echo "";
