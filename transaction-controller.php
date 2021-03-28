@@ -20,19 +20,19 @@ function handleDisplayTransactionRequest() {
 //    }
 
     $accountIDFilter = $_GET['accountIDFilter'];
-    echo 'accountID input is ' . $accountIDFilter . '\r\n';
+    echo 'accountID input is ' . $accountIDFilter . '<br/>';
     if(!empty($accountIDFilter)) {
-        echo 'accountID input NOT EMPTY is ' . $accountIDFilter . '\r\n';
+        echo 'accountID input NOT EMPTY is ' . $accountIDFilter . '<br/>>';
     }
     $merchantNameFilter = $_GET['merchantNameFilter'];
-    echo 'merchantNameFilter input is ' . $merchantNameFilter . '\r\n';
+    echo 'merchantNameFilter input is ' . $merchantNameFilter . '<br/>';
     if(!empty($merchantNameFilter)) {
-        echo 'merchantNameFilter NOT EMPTY input is ' . $merchantNameFilter . '\r\n';
+        echo 'merchantNameFilter NOT EMPTY input is ' . $merchantNameFilter . '<br/>';
     }
     $transactionTypeFilter = $_GET['transactionTypeFilter'];
-    echo 'transactionTypeFilter input is ' . $transactionTypeFilter . '\r\n';
+    echo 'transactionTypeFilter input is ' . $transactionTypeFilter . '<br/>';
     if(!empty($transactionTypeFilter)) {
-        echo 'transactionTypeFilter NOT EMPTY input is ' . $transactionTypeFilter . '\r\n';
+        echo 'transactionTypeFilter NOT EMPTY input is ' . $transactionTypeFilter . '<br/>';
     }
 //    echo "calling handleDisplayTransactionRequest";
 //    echo "";
