@@ -22,7 +22,7 @@ function handleDisplayTransactionRequest() {
     $accountIDFilter = $_GET['accountIDFilter'];
     echo 'accountID input is ' . $accountIDFilter . '<br/>';
     if(!empty($accountIDFilter)) {
-        echo 'accountID input NOT EMPTY is ' . $accountIDFilter . '<br/>>';
+        echo 'accountID input NOT EMPTY is ' . $accountIDFilter . '<br/>';
     }
     $merchantNameFilter = $_GET['merchantNameFilter'];
     echo 'merchantNameFilter input is ' . $merchantNameFilter . '<br/>';
@@ -36,8 +36,8 @@ function handleDisplayTransactionRequest() {
     }
 //    echo "calling handleDisplayTransactionRequest";
 //    echo "";
-//    $result = executePlainSQL("SELECT * FROM Transaction");
-//    printResult($result);
+    $result = executePlainSQL("SELECT * FROM Transaction WHERE");
+    printResult($result);
 //    echo "";
 //    echo "called handleDisplayTransactionRequest";
 //    echo "";
