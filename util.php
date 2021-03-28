@@ -88,11 +88,19 @@ function printResult($result)
     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
 //        echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["NAME"] . "</td></tr>"; //or just use "echo $row[0]"
         $rowResult = "<tr><td>";
-        while ($cell = OCI_Fetch_Array($row, OCI_BOTH)) {
-            echo "cell is " . $cell;
-            echo "cell[0] is " . $cell[0];
-            $rowResult .= $cell[0] . "</td><td>";
+
+        $keys = array_keys($row);
+
+        for($i=0; $i < count($keys); ++$i) {
+            $rowResult .= $keys[$i] . "</td><td>" . $row[$keys[$i]] . "</td><td>";
         }
+
+
+//        while ($cell = OCI_Fetch_Array($row, OCI_BOTH)) {
+//            echo "cell is " . $cell;
+//            echo "cell[0] is " . $cell[0];
+//            $rowResult .= $cell[0] . "</td><td>";
+//        }
         $rowResult .= "</td></tr>";
 
         echo $rowResult;
