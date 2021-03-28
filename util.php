@@ -82,7 +82,7 @@ function printResult($result)
 { //prints results from a select statement
     echo "<table>";
 
-    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+    while ($row = OCI_Fetch_Array($result, OCI_RETURN_NULLS)) {
 //        echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["NAME"] . "</td></tr>"; //or just use "echo $row[0]"
 
         $rowResult = "<tr><td>";
