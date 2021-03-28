@@ -5,34 +5,34 @@ function handleDisplayTransactionRequest() {
     global $db_conn;
 
 
-    $postKeys = array_keys($_GET);
-
-    echo $postKeys;
-
-    foreach($postKeys as $postKey) {
-        echo $postKey . '/n';
-    }
-
-    echo 'echoing post keys';
-    foreach($_GET as $key=>$value)
-    {
-        echo "$key=$value /n";
-    }
+//    $postKeys = array_keys($_GET);
+//
+//    echo $postKeys;
+//
+//    foreach($postKeys as $postKey) {
+//        echo $postKey . '/n';
+//    }
+//
+//    echo 'echoing post keys';
+//    foreach($_GET as $key=>$value)
+//    {
+//        echo "$key=$value /n";
+//    }
 
     $accountIDFilter = $_GET['accountIDFilter'];
-    echo 'accountID input is ' . $accountIDFilter;
+    echo 'accountID input is ' . $accountIDFilter . '\r\n';
     if(!empty($accountIDFilter)) {
-        echo 'accountID input NOT EMPTY is ' . $accountIDFilter;
+        echo 'accountID input NOT EMPTY is ' . $accountIDFilter . '\r\n';
     }
     $merchantNameFilter = $_GET['merchantNameFilter'];
-    echo 'merchantNameFilter input is ' . $merchantNameFilter;
+    echo 'merchantNameFilter input is ' . $merchantNameFilter . '\r\n';
     if(!empty($merchantNameFilter)) {
-        echo 'merchantNameFilter NOT EMPTY input is ' . $merchantNameFilter;
+        echo 'merchantNameFilter NOT EMPTY input is ' . $merchantNameFilter . '\r\n';
     }
     $transactionTypeFilter = $_GET['transactionTypeFilter'];
-    echo 'transactionTypeFilter input is ' . $transactionTypeFilter;
+    echo 'transactionTypeFilter input is ' . $transactionTypeFilter . '\r\n';
     if(!empty($transactionTypeFilter)) {
-        echo 'transactionTypeFilter NOT EMPTY input is ' . $transactionTypeFilter;
+        echo 'transactionTypeFilter NOT EMPTY input is ' . $transactionTypeFilter . '\r\n';
     }
 //    echo "calling handleDisplayTransactionRequest";
 //    echo "";
