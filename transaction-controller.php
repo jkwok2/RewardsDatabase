@@ -4,12 +4,11 @@ require_once 'util.php';
 function handleDisplayTransactionRequest() {
     global $db_conn;
 
-    $cmdstr = "SELECT COUNT(*) FROM Transaction";
+//    $cmdstr = "SELECT COUNT(*) FROM Transaction";
     $result = executePlainSQL("SELECT COUNT(*) FROM Transaction");
-    echo($result);
     printResult($result);
     echo "handleDisplayTransactionRequest";
-
+    echo "";
     $result = executePlainSQL("SELECT * FROM demoTable");
 
     printResult($result);
