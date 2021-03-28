@@ -31,7 +31,6 @@ function executePlainSQL($cmdstr)
     }
 
     $r = OCIExecute($statement, OCI_DEFAULT);
-
     if (!$r) {
         echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
         $e = oci_error($statement); // For OCIExecute errors pass the statementhandle
@@ -83,17 +82,14 @@ function printResult($result)
     echo "<table>";
 
     while ($row = OCI_Fetch_Array($result, OCI_RETURN_NULLS)) {
-//        echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["NAME"] . "</td></tr>"; //or just use "echo $row[0]"
-
         $rowResult = "<tr><td>";
-
         $keys = array_keys($row);
+
         for($i=0; $i < count($keys); $i+=2) {
             $rowResult .= $row[$keys[$i]] . "</td><td>";
         }
 
         $rowResult .= "</td></tr>";
-
         echo $rowResult;
     }
     echo "</table>";
