@@ -29,7 +29,7 @@ function handleDisplayTransactionRequest() {
     if(!empty($merchantNameFilter)) {
         echo 'merchantNameFilter NOT EMPTY input is ' . $merchantNameFilter . '<br/>';
     }
-    $transactionTypeFilter = $_GET['transactionType'];
+    $transactionTypeFilter = $_GET['transactionTypeFilter'];
     echo 'transactionTypeFilter input is ' . $transactionTypeFilter . '<br/>';
     if(!empty($transactionTypeFilter)) {
         echo 'transactionTypeFilter NOT EMPTY input is ' . $transactionTypeFilter . '<br/>';
