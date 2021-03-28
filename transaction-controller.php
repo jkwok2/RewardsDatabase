@@ -19,24 +19,39 @@ function handleDisplayTransactionRequest() {
 //        echo "$key=$value /n";
 //    }
 
+    $whereFilterArray = array();
+
     $accountIDFilter = $_GET['accountIDFilter'];
     echo 'accountID input is ' . $accountIDFilter . '<br/>';
     if(!empty($accountIDFilter)) {
-        echo 'accountID input NOT EMPTY is ' . $accountIDFilter . '<br/>';
+//        echo 'accountID input NOT EMPTY is ' . $accountIDFilter . '<br/>';
+        $whereFilterArray[] = 'accountID=' . $accountIDFilter;
     }
     $merchantNameFilter = $_GET['merchantNameFilter'];
     echo 'merchantNameFilter input is ' . $merchantNameFilter . '<br/>';
     if(!empty($merchantNameFilter)) {
-        echo 'merchantNameFilter NOT EMPTY input is ' . $merchantNameFilter . '<br/>';
+//        echo 'merchantNameFilter NOT EMPTY input is ' . $merchantNameFilter . '<br/>';
+        $whereFilterArray[] = 'merchantName=' . $merchantNameFilter;
     }
     $transactionTypeFilter = $_GET['transactionTypeFilter'];
     echo 'transactionTypeFilter input is ' . $transactionTypeFilter . '<br/>';
     if(!empty($transactionTypeFilter)) {
-        echo 'transactionTypeFilter NOT EMPTY input is ' . $transactionTypeFilter . '<br/>';
+//        echo 'transactionTypeFilter NOT EMPTY input is ' . $transactionTypeFilter . '<br/>';
+        $whereFilterArray[] = 'type=' . $transactionTypeFilter;
     }
 //    echo "calling handleDisplayTransactionRequest";
 //    echo "";
     $result = executePlainSQL("SELECT * FROM Transaction");
+
+    if (!empty($whereFilterArray)) {
+        $result .= ' WHERE ' . $whereFilterArray[0];
+
+        for($i=1; $i < count($whereFilterArray); $i++) {
+            $result .= ' AND ' . $whereFilterArray[$i];
+        }
+    }
+
+
     printResult($result);
 //    echo "";
 //    echo "called handleDisplayTransactionRequest";
