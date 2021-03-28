@@ -3,7 +3,8 @@ require_once 'util.php';
 function handleDisplayRequest() {
     global $db_conn;
 
-    $result = executePlainSQL("SELECT * FROM Account1");
+    $result = executePlainSQL("SELECT * FROM Account1 a1, Account2 a2 WHERE a1.postalCode = a2.postalCode");
+    // $result = executePlainSQL("SELECT * FROM Account1");
 
     printResult($result);
 }
@@ -19,6 +20,11 @@ function handleDisplayAccountMembersRequest() {
 function handleDeleteAccountRequest() {
     echo "handleDeleteAccountRequest";
 }
+
+function addAccount() {
+    echo "handleDeleteAccountRequest";
+}
+
 
 // HANDLE ALL POST ROUTES
 // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
@@ -40,6 +46,8 @@ function handleGETRequest() {
         } else if (array_key_exists('displayTuples', $_GET)) {
             handleDisplayRequest();
         } else if (array_key_exists('displayAccountMembers', $_GET)) {
+            handleDisplayAccountMembersRequest();
+        } else if (array_key_exists('addAccount', $_GET)) {
             handleDisplayAccountMembersRequest();
         }
 

@@ -14,6 +14,28 @@ require 'util.php';
 
 <h1>Account Administration (Test)</h1>
 
+<h2>Insert Account</h2>
+<form method="get">
+    <input type="hidden" id="displayAccountRequest" name="displayAccountRequest">
+    <p>Enter account ID:
+    <input type="text" size="40" name="accountID"></p>
+    <p>Enter Starting Point Balance:
+    <input type="text" size="40" name="pointBalance"></p>
+    <p>Enter Street Address:
+    <input type="text" size="40" name="streetAddress"></p>
+    <p>Enter City:
+    <input type="text" size="40" name="city"></p>
+    <p>Enter PostalCode:
+    <input type="text" size="40" name="postalCode"></p>
+    <p>Enter Country:
+    <input type="text" size="40" name="country"></p>
+    <p>Enter Province or State:
+    <input type="text" size="40" name="provinceState"></p>
+    <input type="submit" value="View account info" name="addAccount">
+</form>
+
+<hr />
+
 <h2>View Account Details</h2>
 <form method="get">
     <input type="hidden" id="displayAccountRequest" name="displayAccountRequest">
