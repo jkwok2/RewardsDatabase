@@ -13,7 +13,11 @@ function handleDisplayTransactionRequest() {
     echo "called handleDisplayTransactionRequest";
     echo "";
     $result = executePlainSQL("SELECT * FROM demoTable");
-
+    printResult($result);
+    echo "";
+    echo "calling projected table";
+    echo "";
+    $result = executePlainSQL("SELECT memberName, email, phone FROM demoTable");
     printResult($result);
 }
 
