@@ -176,6 +176,14 @@ into Member (memberID, accountID, memberName, email, phone, birthDate, referrerI
 select * from dual;
 
 insert all
+into Merchant (merchantID, merchantName, joinDate, defaultRate) values ('MC1001', 'Lululemon', DATE '2019-12-20', 0.2)
+into Merchant (merchantID, merchantName, joinDate, defaultRate) values ('MC1002', 'Starbucks', DATE '2021-01-15', 0.1)
+into Merchant (merchantID, merchantName, joinDate, defaultRate) values ('MC1003', 'SportChek', DATE '2020-05-01', 0.8)
+into Merchant (merchantID, merchantName, joinDate, defaultRate) values ('MC1004', 'Ikea', DATE '2020-08-01', 1.5)
+into Merchant (merchantID, merchantName, joinDate, defaultRate) values ('MC1005', 'Home Depot', DATE '2020-09-01', 0.5)
+select * from dual;
+
+insert all
 into PromotionOffers (promotionID, merchantID, promotionRate, startDate, endDate) values ('P1001', 'MC1001', 2.0, DATE '2019-12-01', DATE '2021-03-05')
 into PromotionOffers (promotionID, merchantID, promotionRate, startDate, endDate) values ('P1002', null, 1.0, DATE '2020-01-01', null)
 into PromotionOffers (promotionID, merchantID, promotionRate, startDate, endDate) values ('P1003', 'MC1003', 2.5, DATE '2020-05-15', DATE '2020-12-31')
