@@ -2,6 +2,9 @@
 require_once 'util.php';
 
 function handleDisplayTransactionRequest() {
+    $cmdstr = "SELECT * FROM Transaction";
+    $result = executePlainSQL($cmdstr);
+    printResult($result);
     echo "handleDisplayTransactionRequest";
 }
 
