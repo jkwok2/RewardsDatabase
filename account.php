@@ -29,9 +29,9 @@ require 'util.php';
     <input type="text" size="40" name="postalCode"></p>
     <p>Enter Country:
     <input type="text" size="40" name="country"></p>
-    <p>Enter Province or State:
-    <input type="text" size="40" name="provinceState"></p>
-    <input type="submit" value="View account info" name="addAccount">
+    <!-- <p>Enter Province or State:
+    <input type="text" size="40" name="provinceState"></p> -->
+    <input type="submit" value="Add Account" name="addAccount">
 </form>
 
 <hr />

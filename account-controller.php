@@ -1,10 +1,11 @@
 <?php
 require_once 'util.php';
+
 function handleDisplayRequest() {
     global $db_conn;
 
-    $result = executePlainSQL("SELECT * FROM Account1 a1, Account2 a2 WHERE a1.postalCode = a2.postalCode");
-    // $result = executePlainSQL("SELECT * FROM Account1");
+    // $result = executePlainSQL("SELECT * FROM Account1 a1, Account2 a2 WHERE a1.postalCode = a2.postalCode");
+    $result = executePlainSQL("SELECT * FROM Account1");
 
     printResult($result);
 }
@@ -22,7 +23,27 @@ function handleDeleteAccountRequest() {
 }
 
 function addAccount() {
-    echo "handleDeleteAccountRequest";
+
+    $accountOneTuple = array (
+        "accountID" => $_POST['accountID'],
+        "bind2" => $_POST['pointBalance'],
+        "bind3" => $_POST['streetAddress'],
+        "bind4" => $_POST['city'],
+        "bind5" => $_POST['postalCode'],
+        "bind6" => $_POST['country']
+    );
+
+    $alltuples = array (
+        $accountOneTuple
+    );
+
+    // executeBoundSQL("insert into Account1 values (:bind1, :bind2, :bind3, :bind4, :bind5, :bind6)", $alltuples);
+    // executePlainSQL(
+    //     "INSERT INTO Account1 
+    //     VALUES ($accountOneTuple[accountID], $accountOneTuple[bind2], $accountOneTuple[bind3], $accountOneTuple[bind4], $accountOneTuple[bind5], $accountOneTuple[bind6])");
+    executePlainSQL(
+        "INSERT INTO Account1 (accountID, pointBalance, streetAddress, city, postalCode, country)
+        VALUES ('A1006', 0, 'v', 'v', 'v', 'v')");
 }
 
 
@@ -48,7 +69,7 @@ function handleGETRequest() {
         } else if (array_key_exists('displayAccountMembers', $_GET)) {
             handleDisplayAccountMembersRequest();
         } else if (array_key_exists('addAccount', $_GET)) {
-            handleDisplayAccountMembersRequest();
+            addAccount();
         }
 
         disconnectFromDB();
