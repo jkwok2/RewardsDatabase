@@ -17,7 +17,7 @@ function handleDisplayTransactionRequest() {
     echo "";
     echo "calling projected table";
     echo "";
-    $result = executePlainSQL("SELECT memberName, email, phone FROM demoTable");
+    $result = executePlainSQL("SELECT memberName, email, phone FROM Member");
     printResult($result);
 }
 
