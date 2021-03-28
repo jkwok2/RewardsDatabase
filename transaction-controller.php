@@ -5,7 +5,7 @@ function handleDisplayTransactionRequest() {
     global $db_conn;
 
 
-    $postKeys = array_keys($_POST);
+    $postKeys = array_keys($_GET);
 
     echo $postKeys;
 
@@ -14,22 +14,22 @@ function handleDisplayTransactionRequest() {
     }
 
     echo 'echoing post keys';
-    foreach($_POST as $key=>$value)
+    foreach($_GET as $key=>$value)
     {
         echo "$key=$value /n";
     }
 
-    $accountIDFilter = $_POST['accountIDFilter'];
+    $accountIDFilter = $_GET['accountIDFilter'];
     echo 'accountID input is ' . $accountIDFilter;
     if(!empty($accountIDFilter)) {
         echo 'accountID input NOT EMPTY is ' . $accountIDFilter;
     }
-    $merchantNameFilter = $_POST['merchantNameFilter'];
+    $merchantNameFilter = $_GET['merchantNameFilter'];
     echo 'merchantNameFilter input is ' . $merchantNameFilter;
     if(!empty($merchantNameFilter)) {
         echo 'merchantNameFilter NOT EMPTY input is ' . $merchantNameFilter;
     }
-    $transactionTypeFilter = $_POST['transactionTypeFilter'];
+    $transactionTypeFilter = $_GET['transactionTypeFilter'];
     echo 'transactionTypeFilter input is ' . $transactionTypeFilter;
     if(!empty($transactionTypeFilter)) {
         echo 'transactionTypeFilter NOT EMPTY input is ' . $transactionTypeFilter;
