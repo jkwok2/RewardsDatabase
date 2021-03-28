@@ -43,15 +43,17 @@ function handleDisplayTransactionRequest() {
 //    echo "";
     $result = executePlainSQL("SELECT * FROM Transaction");
 
+    $cmdstr = "SELECT * FROM Transaction";
     if (!empty($whereFilterArray)) {
-        $result .= ' WHERE ' . $whereFilterArray[0];
+        $cmdstr .= ' WHERE ' . $whereFilterArray[0];
 
         for($i=1; $i < count($whereFilterArray); $i++) {
-            $result .= ' AND ' . $whereFilterArray[$i];
+            $cmdstr .= ' AND ' . $whereFilterArray[$i];
         }
     }
-    echo $result;
+    echo $cmdstr;
 
+    $result = executePlainSQL($cmdstr);
     printResult($result);
 //    echo "";
 //    echo "called handleDisplayTransactionRequest";
