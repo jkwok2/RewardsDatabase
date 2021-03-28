@@ -3,15 +3,17 @@ require_once 'util.php';
 
 function handleDisplayTransactionRequest() {
     global $db_conn;
-
+    echo 'accountID input is ' . $_POST['accountIDFilter'];
     if(!empty($_POST['accountIDFilter'])) {
-        echo 'accountID input is ' . $_POST['accountIDFilter'];
+        echo 'accountID input NOT EMPTY is ' . $_POST['accountIDFilter'];
     }
+    echo 'transactionTypeFilter input is ' . $_POST['merchantNameFilter'];
     if(!empty($_POST['merchantNameFilter'])) {
-        echo 'transactionTypeFilter input is ' . $_POST['merchantNameFilter'];
+        echo 'transactionTypeFilter NOT EMPTY input is ' . $_POST['merchantNameFilter'];
     }
+    echo 'transactionTypeFilter input is ' . $_POST['transactionTypeFilter'];
     if(!empty($_POST['transactionTypeFilter'])) {
-        echo 'transactionTypeFilter input is ' . $_POST['transactionTypeFilter'];
+        echo 'transactionTypeFilter NOT EMPTY input is ' . $_POST['transactionTypeFilter'];
     }
 //    echo "calling handleDisplayTransactionRequest";
 //    echo "";
