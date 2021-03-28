@@ -25,19 +25,19 @@ function handleDisplayTransactionRequest() {
     echo 'accountID input is ' . $accountIDFilter . '<br/>';
     if(!empty($accountIDFilter)) {
 //        echo 'accountID input NOT EMPTY is ' . $accountIDFilter . '<br/>';
-        $whereFilterArray[] = 'ACCOUNTID="' . $accountIDFilter . '"';
+        $whereFilterArray[] = 'ACCOUNTID=\'' . $accountIDFilter . '\'';
     }
     $merchantNameFilter = $_GET['merchantNameFilter'];
     echo 'merchantNameFilter input is ' . $merchantNameFilter . '<br/>';
     if(!empty($merchantNameFilter)) {
 //        echo 'merchantNameFilter NOT EMPTY input is ' . $merchantNameFilter . '<br/>';
-        $whereFilterArray[] = 'MERCHANTNAME="' . $merchantNameFilter . '"';
+        $whereFilterArray[] = 'MERCHANTNAME=\'' . $merchantNameFilter . '\'';
     }
     $transactionTypeFilter = $_GET['transactionTypeFilter'];
     echo 'transactionTypeFilter input is ' . $transactionTypeFilter . '<br/>';
     if(!empty($transactionTypeFilter)) {
 //        echo 'transactionTypeFilter NOT EMPTY input is ' . $transactionTypeFilter . '<br/>';
-        $whereFilterArray[] = 'TYPE="' . $transactionTypeFilter . '"';
+        $whereFilterArray[] = 'TYPE=\'' . $transactionTypeFilter . '\'';
     }
 //    echo "calling handleDisplayTransactionRequest";
 //    echo "";
