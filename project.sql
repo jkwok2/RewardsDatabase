@@ -91,7 +91,7 @@ create table Redeems(
     memberID          varchar(10),
     dateTime          timestamp not null,
     primary key (rewardID, accountID, memberID),
-    foreign key (rewardID) references Reward(rewardID),
+    foreign key (rewardID) references Reward(rewardID) ON DELETE CASCADE,
     foreign key (accountID, memberID) references Member(accountID, memberID)       
 );
 grant select on Redeems to public;
