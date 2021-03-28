@@ -88,22 +88,14 @@ function printResult($result)
         $rowResult = "<tr><td>";
 
         $keys = array_keys($row);
-        $rowResult .= count($keys) . "</td><td>";
         for($i=0; $i < count($keys); $i+=2) {
             $rowResult .= $row[$keys[$i]] . "</td><td>";
         }
 
-
-//        while ($cell = OCI_Fetch_Array($row, OCI_BOTH)) {
-//            echo "cell is " . $cell;
-//            echo "cell[0] is " . $cell[0];
-//            $rowResult .= $cell[0] . "</td><td>";
-//        }
         $rowResult .= "</td></tr>";
 
         echo $rowResult;
     }
-
     echo "</table>";
 }
 
