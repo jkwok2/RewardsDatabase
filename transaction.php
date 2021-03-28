@@ -17,7 +17,7 @@ require 'util.php';
         <select name="transactionTypeFilter" id="transactionTypeFilter">
             <option value=""></option>
             <option value="purchase">purchase</option>
-            <option value="return">return</option>
+            <option value="refund">refund</option>
             <option value="exchange">exchange</option>
             <option value="other">other</option>
         </select>

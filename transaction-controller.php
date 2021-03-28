@@ -28,7 +28,7 @@ function handleDisplayTransactionRequest() {
             $cmdstr .= ' AND ' . $whereFilterArray[$i];
         }
     }
-    echo $cmdstr;
+//    echo $cmdstr;
 
     $result = executePlainSQL($cmdstr);
     printResult($result);
