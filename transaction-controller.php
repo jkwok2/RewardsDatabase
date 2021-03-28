@@ -9,6 +9,10 @@ function handleDisplayTransactionRequest() {
     echo($result);
     printResult($result);
     echo "handleDisplayTransactionRequest";
+
+    $result = executePlainSQL("SELECT * FROM demoTable");
+
+    printResult($result);
 }
 
 function handleDisplayAdvancedTransactionRequest() {
