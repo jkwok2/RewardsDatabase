@@ -4,46 +4,23 @@ require_once 'util.php';
 function handleDisplayTransactionRequest() {
     global $db_conn;
 
-
-//    $postKeys = array_keys($_GET);
-//
-//    echo $postKeys;
-//
-//    foreach($postKeys as $postKey) {
-//        echo $postKey . '/n';
-//    }
-//
-//    echo 'echoing post keys';
-//    foreach($_GET as $key=>$value)
-//    {
-//        echo "$key=$value /n";
-//    }
-
     $whereFilterArray = array();
 
     $accountIDFilter = $_GET['accountIDFilter'];
-    echo 'accountID input is ' . $accountIDFilter . '<br/>';
     if(!empty($accountIDFilter)) {
-//        echo 'accountID input NOT EMPTY is ' . $accountIDFilter . '<br/>';
         $whereFilterArray[] = 'ACCOUNTID=\'' . $accountIDFilter . '\'';
     }
     $merchantNameFilter = $_GET['merchantNameFilter'];
-    echo 'merchantNameFilter input is ' . $merchantNameFilter . '<br/>';
     if(!empty($merchantNameFilter)) {
-//        echo 'merchantNameFilter NOT EMPTY input is ' . $merchantNameFilter . '<br/>';
         $whereFilterArray[] = 'MERCHANTNAME=\'' . $merchantNameFilter . '\'';
     }
     $transactionTypeFilter = $_GET['transactionTypeFilter'];
-    echo 'transactionTypeFilter input is ' . $transactionTypeFilter . '<br/>';
     if(!empty($transactionTypeFilter)) {
-//        echo 'transactionTypeFilter NOT EMPTY input is ' . $transactionTypeFilter . '<br/>';
         $whereFilterArray[] = 'TYPE=\'' . $transactionTypeFilter . '\'';
     }
-//    echo "calling handleDisplayTransactionRequest";
-//    echo "";
-    $result = executePlainSQL("SELECT * FROM Transaction");
 
     $cmdstr = "SELECT * FROM Transaction";
+
     if (!empty($whereFilterArray)) {
         $cmdstr .= ' WHERE ' . $whereFilterArray[0];
 
@@ -55,16 +32,6 @@ function handleDisplayTransactionRequest() {
 
     $result = executePlainSQL($cmdstr);
     printResult($result);
-//    echo "";
-//    echo "called handleDisplayTransactionRequest";
-//    echo "";
-//    $result = executePlainSQL("SELECT * FROM demoTable");
-//    printResult($result);
-//    echo "";
-//    echo "calling projected table";
-//    echo "";
-//    $result = executePlainSQL("SELECT memberName, email, phone FROM Member");
-//    printResult($result);
 }
 
 function handleDisplayAdvancedTransactionRequest() {
