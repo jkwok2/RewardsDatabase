@@ -3,6 +3,12 @@ require_once 'util.php';
 
 function handleDisplayTransactionRequest() {
     global $db_conn;
+
+    foreach($_POST as $key=>$value)
+    {
+        echo "$key=$value /n";
+    }
+
     $accountIDFilter = $_POST['accountIDFilter'];
     echo 'accountID input is ' . $accountIDFilter;
     if(!empty($accountIDFilter)) {
