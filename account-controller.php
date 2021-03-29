@@ -23,6 +23,7 @@ function handleDeleteAccountRequest() {
 }
 
 function addAccount() {
+    global $db_conn;
 
     $accountOneTuple = array (
         "accountID" => $_POST['accountID'],
@@ -44,6 +45,8 @@ function addAccount() {
     executePlainSQL(
         "INSERT INTO Account1 (accountID, pointBalance, streetAddress, city, postalCode, country)
         VALUES ('A1006', 0, 'v', 'v', 'v', 'v')");
+    echo "foo";
+    OCICommit($db_conn);
 }
 
 
