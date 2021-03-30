@@ -24,7 +24,6 @@ require 'util.php';
 <form method="GET" action="member.php"> <!--refresh page when submitted-->
     <input type="hidden" id="memberProjectionRequest" name="memberProjectionRequest">
     <p>Select columns to display:
-        <label for="columns"></label>
         <select name="columns" id="columns" multiple>
             <option value="memberID">memberID</option>
             <option value="accountID">accountID</option>

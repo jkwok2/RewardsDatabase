@@ -19,15 +19,14 @@ function handleUpdateMemberRequest() {
 }
 
 function handleMemberProjectionRequest() {
+    global $db_conn;
     $cmdstr = "SELECT * FROM Member";
     $result = executePlainSQL($cmdstr);
     printResult($result);
 }
 
 function handleCountMemberRequest() {
-     $result = executePlainSQL("SELECT accountID, Count(*) FROM Member GROUP BY accountID");
-     printResult($result);
-
+    printResult(executePlainSQL("SELECT accountID, Count(*) FROM Member GROUP BY accountID"));
 }
 
 // HANDLE ALL POST ROUTES
@@ -59,4 +58,6 @@ if (isset($_POST['updateMember'])) {
 else if (isset($_GET['memberProjectionRequest']) || isset($_GET['countMemberRequest'])) {
     handleGETRequest();
 }
+?>
+
 
