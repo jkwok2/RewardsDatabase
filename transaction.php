@@ -4,7 +4,7 @@ require 'util.php';
 ?>
 <h1>Transaction Analyzer</h1>
 
-<h2>Filter and View Transactions</h2>
+<h2>View Transaction Details</h2>
 <form method="get" action="transaction.php">
     <input type="hidden" id="displayTransactionRequest" name="displayTransactionRequest">
     <p>Use the options below to filter your result<br/>
@@ -27,7 +27,7 @@ require 'util.php';
 
 <hr />
 
-<h2>Advanced filter options</h2>
+<h2>Advanced view and filter options</h2>
 <form method="get" action="transaction.php">
         <input type="hidden" id="displayAdvancedTransactionRequest" name="displayAdvancedTransactionRequest">
     <p>Use the options below to filter your result based on values from other tables<br/>
