@@ -2,11 +2,95 @@
 require_once 'util.php';
 
 function handleDisplayTransactionRequest() {
-    echo "handleDisplayTransactionRequest";
+    global $db_conn;
+
+    $whereFilterArray = array();
+
+    $accountIDFilter = $_GET['accountIDFilter'];
+    if(!empty($accountIDFilter)) {
+        $whereFilterArray[] = 'ACCOUNTID=\'' . $accountIDFilter . '\'';
+    }
+    $merchantNameFilter = $_GET['merchantNameFilter'];
+    if(!empty($merchantNameFilter)) {
+        $whereFilterArray[] = 'MERCHANTNAME=\'' . $merchantNameFilter . '\'';
+    }
+    $transactionTypeFilter = $_GET['transactionTypeFilter'];
+    if(!empty($transactionTypeFilter)) {
+        $whereFilterArray[] = 'TYPE=\'' . $transactionTypeFilter . '\'';
+    }
+
+    $cmdstr = "SELECT * FROM Transaction";
+
+    if (!empty($whereFilterArray)) {
+        $cmdstr .= ' WHERE ' . $whereFilterArray[0];
+
+        for($i=1; $i < count($whereFilterArray); $i++) {
+            $cmdstr .= ' AND ' . $whereFilterArray[$i];
+        }
+    }
+//    echo $cmdstr;
+
+    $result = executePlainSQL($cmdstr);
+    printResult($result);
 }
 
 function handleDisplayAdvancedTransactionRequest() {
-    echo "handleDisplayAdvancedTransactionRequest";
+    global $db_conn;
+
+    $whereFilterArray = array();
+    $whereFilterMatchArray = array();
+
+    $accountNationFilter = $_GET['accountNationFilter'];
+    if(!empty($accountNationFilter)) {
+        $whereFilterArray[] = "COUNTRY='" . $accountNationFilter . "'";
+        $whereFilterMatchArray[] = "t.accountID=a.accountID";
+    }
+
+    $promotionRateFilterValue = $_GET['promotionRateFilterValue'];
+    if(!empty($promotionRateFilterValue)) {
+        $promotionRateFilterEquality = $_GET['promotionRateFilterEquality'];
+        $whereFilterArray[] = "PROMOTIONRATE" . $promotionRateFilterEquality . $promotionRateFilterValue;
+        $whereFilterMatchArray[] = "t.promotionID=p.promotionID";
+    }
+
+
+    $cmdstr = "SELECT t.transactionID, t.merchantName, t.type, t.transactionAmount";
+
+    if (!empty($whereFilterArray)) {
+        if (!empty($accountNationFilter)) {
+            $cmdstr .= ", a.accountID, a.country";
+        }
+        if (!empty($promotionRateFilterValue)) {
+            $cmdstr .= ", p.promotionID, p.promotionRate";
+        }
+    }
+
+    $cmdstr .= " FROM Transaction t";
+
+    if (!empty($whereFilterArray)) {
+        if(!empty($accountNationFilter)) {
+            $cmdstr .= ", ACCOUNT1 a";
+        }
+        if(!empty($promotionRateFilterValue)) {
+            $cmdstr .= ", PROMOTIONOFFERS p";
+        }
+
+        $cmdstr .= " WHERE ";
+
+        //TODO
+        $cmdstr .= $whereFilterMatchArray[0];
+        for($i=1; $i < count($whereFilterArray); $i++) {
+            $cmdstr .= ' AND ' . $whereFilterMatchArray[$i];
+        }
+
+        for($i=0; $i < count($whereFilterArray); $i++) {
+            $cmdstr .= ' AND ' . $whereFilterArray[$i];
+        }
+    }
+//    echo $cmdstr;
+
+    $result = executePlainSQL($cmdstr);
+    printResult($result);
 }
 
 // HANDLE ALL POST ROUTES
