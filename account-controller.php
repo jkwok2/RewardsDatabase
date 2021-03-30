@@ -10,42 +10,24 @@ function handleDisplayRequest() {
     printResult($result);
 }
 
-function handleDisplayAccountDetailsRequest() {
-    echo "handleDisplayAccountDetailsRequest";
-}
-
-function handleDisplayAccountMembersRequest() {
-    echo "handleDisplayAccountMembersRequest";
-}
-
-function handleDeleteAccountRequest() {
-    echo "handleDeleteAccountRequest";
-}
-
-function addAccount() {
+function handleInsertRequest() {
     global $db_conn;
 
-    $accountOneTuple = array (
-        "accountID" => $_POST['accountID'],
-        "bind2" => $_POST['pointBalance'],
-        "bind3" => $_POST['streetAddress'],
-        "bind4" => $_POST['city'],
-        "bind5" => $_POST['postalCode'],
-        "bind6" => $_POST['country']
+    //Getting the values from user and insert data into the table
+    $tuple = array (
+        ":bind1" => $_POST['accountID'],
+        ":bind2" => $_POST['pointsBalance'],
+        ":bind3" => $_POST['streetAddress'],
+        ":bind4" => $_POST['city'],
+        ":bind5" => $_POST['postalCode'],
+        ":bind6" => $_POST['country']
     );
 
     $alltuples = array (
-        $accountOneTuple
+        $tuple
     );
 
-    // executeBoundSQL("insert into Account1 values (:bind1, :bind2, :bind3, :bind4, :bind5, :bind6)", $alltuples);
-    // executePlainSQL(
-    //     "INSERT INTO Account1 
-    //     VALUES ($accountOneTuple[accountID], $accountOneTuple[bind2], $accountOneTuple[bind3], $accountOneTuple[bind4], $accountOneTuple[bind5], $accountOneTuple[bind6])");
-    executePlainSQL(
-        "INSERT INTO Account1 (accountID, pointBalance, streetAddress, city, postalCode, country)
-        VALUES ('A1006', 0, 'v', 'v', 'v', 'v')");
-    echo "foo";
+    executeBoundSQL("insert into Account1 values (:bind1, :bind2, :bind3, :bind4, :bind5, :bind6)", $alltuples);
     OCICommit($db_conn);
 }
 
@@ -56,7 +38,10 @@ function handlePOSTRequest() {
     if (connectToDB()) {
         if (array_key_exists('deleteAccountRequest', $_POST)) {
             handleDeleteAccountRequest();
+        } else if (array_key_exists('insertQueryRequest', $_POST)) {
+            handleInsertRequest();
         }
+
         disconnectFromDB();
     }
 }
@@ -71,15 +56,13 @@ function handleGETRequest() {
             handleDisplayRequest();
         } else if (array_key_exists('displayAccountMembers', $_GET)) {
             handleDisplayAccountMembersRequest();
-        } else if (array_key_exists('addAccount', $_GET)) {
-            addAccount();
         }
 
         disconnectFromDB();
     }
 }
 
-if (isset($_POST['deleteAccount'])) {
+if (isset($_POST['deleteAccount']) || isset($_POST['insertSubmit'])) {
     handlePOSTRequest();
 } else if (isset($_GET['displayAccountRequest']) || isset($_GET['displayTupleRequest'])) {
     handleGETRequest();
