@@ -32,9 +32,7 @@ function handleMemberProjectionRequest() {
 }
 
 function handleCountMemberRequest() {
-    global $db_conn;
     $result = executePlainSQL("SELECT accountID, COUNT(*) FROM Member GROUP BY accountID");
-    echo 'calling handleCountMemberRequest()';
     printResult($result);
 }
 
