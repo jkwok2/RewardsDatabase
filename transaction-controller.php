@@ -47,17 +47,17 @@ function handleDisplayAdvancedTransactionRequest() {
     $promotionRateFilterValue = $_GET['promotionRateFilterValue'];
     if(!empty($promotionRateFilterValue)) {
         $promotionRateFilterEquality = $_GET['promotionRateFilterEquality'];
-        $whereFilterArray[] = "p.PROMOTIONRATE" . $promotionRateFilterEquality . $promotionRateFilterValue;
+        $whereFilterArray[] = "PROMOTIONRATE" . $promotionRateFilterEquality . $promotionRateFilterValue;
     }
 
     $cmdstr = "SELECT * FROM Transaction";
 
     if (!empty($whereFilterArray)) {
         if(!empty($accountNationFilter)) {
-            $cmdstr .= " NATURAL JOIN ACCOUNT1 ";
+            $cmdstr .= ", ACCOUNT1 ";
         }
         if(!empty($accountNationFilter)) {
-            $cmdstr .= " NATURAL JOIN PROMOTIONOFFERS ";
+            $cmdstr .= ", PROMOTIONOFFERS ";
         }
 
 //        $cmdstr .= ' WHERE ' . $whereFilterArray[0];
