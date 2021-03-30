@@ -51,9 +51,29 @@ function handleDisplayAdvancedTransactionRequest() {
     if(!empty($promotionRateFilterValue)) {
         $promotionRateFilterEquality = $_GET['promotionRateFilterEquality'];
         echo $promotionRateFilterEquality;
-        $whereFilterArray[] = "PROMOTIONRATE" . $promotionRateFilterEquality . "'" . $promotionRateFilterValue . '\'';
+        $whereFilterArray[] = "PROMOTIONRATE" . $promotionRateFilterEquality . $promotionRateFilterValue;
     }
 
+    $cmdstr = "SELECT * FROM Transaction";
+
+    if(!empty($accountNationFilter)) {
+        $cmdstr .= "NATURAL JOIN ACCOUNT1";
+    }
+    if(!empty($accountNationFilter)) {
+        $cmdstr .= "NATURAL JOIN PROMOTIONOFFERS";
+    }
+
+    if (!empty($whereFilterArray)) {
+        $cmdstr .= ' WHERE ' . $whereFilterArray[0];
+
+        for($i=1; $i < count($whereFilterArray); $i++) {
+            $cmdstr .= ' AND ' . $whereFilterArray[$i];
+        }
+    }
+//    echo $cmdstr;
+
+    $result = executePlainSQL($cmdstr);
+    printResult($result);
     echo "handleDisplayAdvancedTransactionRequest";
 }
 
