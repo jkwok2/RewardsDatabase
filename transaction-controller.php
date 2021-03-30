@@ -49,7 +49,7 @@ function handleDisplayAdvancedTransactionRequest() {
 
     echo $promotionRateFilterValue;
     if(!empty($promotionRateFilterValue)) {
-        $promotionRateFilterEquality = $_GET['$promotionRateFilterEquality'];
+        $promotionRateFilterEquality = $_GET['promotionRateFilterEquality'];
         echo $promotionRateFilterEquality;
         $whereFilterArray[] = "PROMOTIONRATE" . $promotionRateFilterEquality . "'" . $promotionRateFilterValue . '\'';
     }
