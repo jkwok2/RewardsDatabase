@@ -40,17 +40,13 @@ function handleDisplayAdvancedTransactionRequest() {
     $whereFilterArray = array();
 
     $accountNationFilter = $_GET['accountNationFilter'];
-    echo $accountNationFilter;
     if(!empty($accountNationFilter)) {
         $whereFilterArray[] = 'COUNTRY=\'' . $accountNationFilter . '\'';
     }
-    $promotionRateFilterValue = $_GET['promotionRateFilterValue'];
-    echo $promotionRateFilterValue;
 
-    echo $promotionRateFilterValue;
+    $promotionRateFilterValue = $_GET['promotionRateFilterValue'];
     if(!empty($promotionRateFilterValue)) {
         $promotionRateFilterEquality = $_GET['promotionRateFilterEquality'];
-        echo $promotionRateFilterEquality;
         $whereFilterArray[] = "PROMOTIONRATE" . $promotionRateFilterEquality . $promotionRateFilterValue;
     }
 
@@ -74,7 +70,6 @@ function handleDisplayAdvancedTransactionRequest() {
 
     $result = executePlainSQL($cmdstr);
     printResult($result);
-    echo "handleDisplayAdvancedTransactionRequest";
 }
 
 // HANDLE ALL POST ROUTES
