@@ -57,14 +57,14 @@ function handleDisplayAdvancedTransactionRequest() {
             $cmdstr .= " NATURAL JOIN ACCOUNT1 ";
         }
         if(!empty($accountNationFilter)) {
-            $cmdstr .= " NATURAL JOIN PROMOTIONOFFERS p ";
+            $cmdstr .= " NATURAL JOIN PROMOTIONOFFERS ";
         }
 
-        $cmdstr .= ' WHERE ' . $whereFilterArray[0];
-
-        for($i=1; $i < count($whereFilterArray); $i++) {
-            $cmdstr .= ' AND ' . $whereFilterArray[$i];
-        }
+//        $cmdstr .= ' WHERE ' . $whereFilterArray[0];
+//
+//        for($i=1; $i < count($whereFilterArray); $i++) {
+//            $cmdstr .= ' AND ' . $whereFilterArray[$i];
+//        }
     }
 //    echo $cmdstr;
 
