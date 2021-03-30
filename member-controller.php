@@ -31,7 +31,7 @@ function handleUpdateMemberRequest() {
             $cmdstr = "UPDATE Member SET email='" . $new_email . "' WHERE memberID='" . $memberID ."'";
             executePlainSQL($cmdstr);
         }
-        if (empty($new_phone)) {
+        if (!empty($new_phone)) {
             $new_phone = $_POST['phone'];
             $cmdstr = "UPDATE Member SET phone='" . $new_phone . "' WHERE memberID='" . $memberID ."'";
             executePlainSQL($cmdstr);
