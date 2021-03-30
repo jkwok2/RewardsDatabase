@@ -4,35 +4,19 @@ require_once 'util.php';
 function handleUpdateMemberRequest() {
     global $db_conn;
 
-//    $memberID = $_POST['memberID'];
-//    echo 'memberID is ' . $memberID . '<br/>';
-//    $new_email = $_POST['email'];
-//    echo 'email is ' . $new_email . '<br/>';
-//    $new_phone = $_POST['phone'];
-//    echo 'phone is ' . $new_phone . '<br/>';
-//    $cmdstr = "UPDATE Member SET email='" . $new_email ."', phone='" . $new_phone ."' WHERE memberID='". $memberID ."'";
-
     $memberID = $_POST['memberID'];
-    echo 'memberID is ' . $memberID . '<br/>';
+    $new_email = $_POST['email'];
+    $new_phone = $_POST['phone'];
+
     if (!empty($memberID)) {
         if (!empty($new_email) && !empty($new_phone)) {
-            $new_email = $_POST['email'];
-            $new_phone = $_POST['phone'];
-
-            echo 'email is ' . $new_email . '<br/>';
-            echo 'phone is ' . $new_phone . '<br/>';
-
-            $cmdstr = "UPDATE Member SET email='" . $new_email . "', phone='" . $new_phone . "' 
-            WHERE memberID='" . $memberID ."'";
+            $cmdstr = "UPDATE Member SET email='" . $new_email . "', phone='" . $new_phone . "' WHERE memberID='" . $memberID ."'";
             executePlainSQL($cmdstr);
-        }
-        if (!empty($new_email)) {
-            $new_email = $_POST['email'];
+        } else if (!empty($new_email)) {
             $cmdstr = "UPDATE Member SET email='" . $new_email . "' WHERE memberID='" . $memberID ."'";
             executePlainSQL($cmdstr);
         }
-        if (!empty($new_phone)) {
-            $new_phone = $_POST['phone'];
+        else if (!empty($new_phone)) {
             $cmdstr = "UPDATE Member SET phone='" . $new_phone . "' WHERE memberID='" . $memberID ."'";
             executePlainSQL($cmdstr);
         }
@@ -41,13 +25,27 @@ function handleUpdateMemberRequest() {
 }
 
 function handleMemberProjectionRequest() {
+    global $db_conn;
     $cmdstr = "SELECT * FROM Member";
     $result = executePlainSQL($cmdstr);
     printResult($result);
 }
 
 function handleCountMemberRequest() {
-    printResult(executePlainSQL("SELECT accountID, Count(*) FROM Member GROUP BY accountID"));
+    global $db_conn;
+    $result = executePlainSQL("SELECT accountID, COUNT(*) FROM Member GROUP BY accountID");
+    echo 'calling handleCountMemberRequest()';
+    printResult($result);
+    // echo "<table>";
+    // echo "<tr><th>memberID</th><th>Number of Members</th></tr>";
+
+    // while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+    //     echo "<tr><td>" . $row["memberID"] . "</td><td>" . $row["Number of Members"] . "</td></tr>"; //or just use "echo $row[0]"
+    // }
+
+    // echo "</table>";
+
+
 }
 
 // HANDLE ALL POST ROUTES
