@@ -58,10 +58,10 @@ function handleDisplayAdvancedTransactionRequest() {
 
     if (!empty($whereFilterArray)) {
         if(!empty($accountNationFilter)) {
-            $cmdstr .= "NATURAL JOIN ACCOUNT1";
+            $cmdstr .= " NATURAL JOIN ACCOUNT1 ";
         }
         if(!empty($accountNationFilter)) {
-            $cmdstr .= "NATURAL JOIN PROMOTIONOFFERS";
+            $cmdstr .= " NATURAL JOIN PROMOTIONOFFERS ";
         }
 
         $cmdstr .= ' WHERE ' . $whereFilterArray[0];
