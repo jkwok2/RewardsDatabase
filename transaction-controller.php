@@ -38,33 +38,54 @@ function handleDisplayAdvancedTransactionRequest() {
     global $db_conn;
 
     $whereFilterArray = array();
+    $whereFilterMatchArray = array();
 
     $accountNationFilter = $_GET['accountNationFilter'];
     if(!empty($accountNationFilter)) {
-        $whereFilterArray[] = 'COUNTRY=\'' . $accountNationFilter . '\'';
+        $whereFilterArray[] = "COUNTRY='" . $accountNationFilter . "'";
+        $whereFilterMatchArray[] = "t.accountID=a.accountID";
     }
 
     $promotionRateFilterValue = $_GET['promotionRateFilterValue'];
     if(!empty($promotionRateFilterValue)) {
         $promotionRateFilterEquality = $_GET['promotionRateFilterEquality'];
         $whereFilterArray[] = "PROMOTIONRATE" . $promotionRateFilterEquality . $promotionRateFilterValue;
+        $whereFilterMatchArray[] = "t.promotionID=p.promotionID";
     }
 
-    $cmdstr = "SELECT * FROM Transaction";
+
+    $cmdstr = "SELECT t.transactionID, t.merchantName, t.type";
+
+    if (!empty($whereFilterArray)) {
+        if (!empty($accountNationFilter)) {
+            $cmdstr .= ", a.accountID, a.country";
+        }
+        if (!empty($promotionRateFilterValue)) {
+            $cmdstr .= ", p.promotionID, p.promotionRate";
+        }
+    }
+
+    $cmdstr .= "FROM Transaction t";
 
     if (!empty($whereFilterArray)) {
         if(!empty($accountNationFilter)) {
-            $cmdstr .= ", ACCOUNT1 ";
+            $cmdstr .= ", ACCOUNT1 a";
         }
-        if(!empty($accountNationFilter)) {
-            $cmdstr .= ", PROMOTIONOFFERS ";
+        if(!empty($promotionRateFilterValue)) {
+            $cmdstr .= ", PROMOTIONOFFERS p";
         }
 
-//        $cmdstr .= ' WHERE ' . $whereFilterArray[0];
-//
-//        for($i=1; $i < count($whereFilterArray); $i++) {
-//            $cmdstr .= ' AND ' . $whereFilterArray[$i];
-//        }
+        $cmdstr .= " WHERE ";
+
+        //TODO
+        $cmdstr .= $whereFilterMatchArray[0];
+        for($i=1; $i < count($whereFilterArray); $i++) {
+            $cmdstr .= ' AND ' . $whereFilterMatchArray[$i];
+        }
+
+        for($i=0; $i < count($whereFilterArray); $i++) {
+            $cmdstr .= ' AND ' . $whereFilterArray[$i];
+        }
     }
 //    echo $cmdstr;
 
