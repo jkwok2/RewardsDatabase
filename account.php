@@ -13,9 +13,12 @@ require 'util.php';
     City: <input type="text" name="city"> <br /><br />
     Postal Code: <input type="text" name="postalCode"> <br /><br />
     Country: <input type="text" name="country"> <br /><br />
+    Province/State: <input type="text" name="provinceState"> <br /><br />
 
     <input type="submit" value="Insert" name="insertSubmit"></p>
 </form>
+
+<hr />
 
 <h2>Display Accounts</h2>
 <form method="GET" action="account.php"> <!--refresh page when submitted-->

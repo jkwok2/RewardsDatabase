@@ -4,8 +4,8 @@ require_once 'util.php';
 function handleDisplayRequest() {
     global $db_conn;
 
-    // $result = executePlainSQL("SELECT * FROM Account1 a1, Account2 a2 WHERE a1.postalCode = a2.postalCode");
-    $result = executePlainSQL("SELECT * FROM Account1");
+    $result = executePlainSQL("SELECT a1.accountID, a1.pointBalance, a1.streetAddress, a1.city, a2.postalCode, a2.country, a2.provinceState FROM Account1 a1, Account2 a2 WHERE a1.postalCode = a2.postalCode");
+    // $result = executePlainSQL("SELECT * FROM Account1");
 
     printResult($result);
 }
@@ -20,7 +20,8 @@ function handleInsertRequest() {
         ":bind3" => $_POST['streetAddress'],
         ":bind4" => $_POST['city'],
         ":bind5" => $_POST['postalCode'],
-        ":bind6" => $_POST['country']
+        ":bind6" => $_POST['country'],
+        ":bind7" => $_POST['provinceState']
     );
 
     $alltuples = array (
@@ -28,6 +29,7 @@ function handleInsertRequest() {
     );
 
     executeBoundSQL("insert into Account1 values (:bind1, :bind2, :bind3, :bind4, :bind5, :bind6)", $alltuples);
+    executeBoundSQL("insert into Account2 values (:bind5, :bind6, :bind7)", $alltuples);
     OCICommit($db_conn);
 }
 
