@@ -38,7 +38,7 @@ require 'util.php';
     <input type="text" size="40" name="promotionRateFilterValue">
         <br/>
     <input type="radio" value="<=" name="promotionRateFilterEquality">less than or equal
-    <input type="radio" value="=" name="promotionRateFilterEquality">equal
+    <input type="radio" value="=" name="promotionRateFilterEquality" selected>equal
     <input type="radio" value=">=" name="promotionRateFilterEquality">greater than or equal</p>
     <input type="submit" value="View transactions" name="displayAdvancedTransactions">
 </form>

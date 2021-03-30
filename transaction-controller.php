@@ -35,6 +35,25 @@ function handleDisplayTransactionRequest() {
 }
 
 function handleDisplayAdvancedTransactionRequest() {
+    global $db_conn;
+
+    $whereFilterArray = array();
+
+    $accountNationFilter = $_GET['accountNationFilter'];
+    echo $accountNationFilter;
+    if(!empty($accountNationFilter)) {
+        $whereFilterArray[] = 'COUNTRY=\'' . $accountNationFilter . '\'';
+    }
+    $promotionRateFilterValue = $_GET['promotionRateFilterValue'];
+    echo $promotionRateFilterValue;
+
+    echo $promotionRateFilterValue;
+    if(!empty($promotionRateFilterValue)) {
+        $promotionRateFilterEquality = $_GET['$promotionRateFilterEquality'];
+        echo $promotionRateFilterEquality;
+        $whereFilterArray[] = "PROMOTIONRATE" . $promotionRateFilterEquality . "'" . $promotionRateFilterValue . '\'';
+    }
+
     echo "handleDisplayAdvancedTransactionRequest";
 }
 
