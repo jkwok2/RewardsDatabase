@@ -21,7 +21,7 @@ require 'util.php';
 <hr />
 
 <h2>Display Selected Columns from the Member Table</h2>
-<form method="GET" action="member.php"> <!--refresh page when submitted-->
+<form method="POST" action="member.php"> <!--refresh page when submitted-->
     <input type="hidden" id="memberProjectionRequest" name="memberProjectionRequest">
     <p>Select columns to display:
         <select name="columns[]" id="columns" multiple>
@@ -59,3 +59,5 @@ require 'member-controller.php';
 require 'backButton.php';
 ?>
 </html>
+
+

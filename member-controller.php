@@ -1,13 +1,10 @@
 <?php
 require_once 'util.php';
-
 function handleUpdateMemberRequest() {
     global $db_conn;
-
     $memberID = $_POST['memberID'];
     $new_email = $_POST['email'];
     $new_phone = $_POST['phone'];
-
     if (!empty($memberID)) {
         if (!empty($new_email) && !empty($new_phone)) {
             $cmdstr = "UPDATE Member SET email='" . $new_email . "', phone='" . $new_phone . "' WHERE memberID='" . $memberID ."'";
@@ -25,16 +22,25 @@ function handleUpdateMemberRequest() {
 }
 
 function handleMemberProjectionRequest() {
+
     global $db_conn;
     $userInputs = $_POST["columns"];
     $inputString = "";
 
-    foreach($userInputs as $col) {
-        $inputString .= '" . $col . <br/>"' ;
+    foreach($_POST[columns] as $col) {
+        $inputString .= $col . "," ;
 
     }
-    $result = executePlainSQL("SELECT $inputSting FROM Member");
+    $inputString = substr($inputString, 0, -1);
+    $result = executePlainSQL("SELECT $inputString FROM Member");
     printResult($result);
+
+}
+
+function console_log( $data ){
+    echo '<script>';
+    echo 'console.log('. json_encode( $data ) .')';
+    echo '</script>';
 }
 
 function handleCountMemberRequest() {
@@ -48,6 +54,8 @@ function handlePOSTRequest() {
     if (connectToDB()) {
         if (array_key_exists('updateMemberRequest', $_POST)) {
             handleUpdateMemberRequest();
+        } else if (array_key_exists('memberProjectionRequest', $_POST)) {
+            handleMemberProjectionRequest();
         }
         disconnectFromDB();
     }
@@ -56,19 +64,16 @@ function handlePOSTRequest() {
 // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
 function handleGETRequest() {
     if (connectToDB()) {
-        if (array_key_exists('displayColumns', $_GET)) {
-            handleMemberProjectionRequest();
-        } else if (array_key_exists('countMembers', $_GET)) {
+        if (array_key_exists('countMembers', $_GET)) {
             handleCountMemberRequest();
         }
-
         disconnectFromDB();
     }
 }
-if (isset($_POST['updateMember'])) {
+if (isset($_POST['updateMember']) || isset($_POST['displayColumns'])) {
     handlePOSTRequest();
 }
-else if (isset($_GET['memberProjectionRequest']) || isset($_GET['countMemberRequest'])) {
+else if (isset($_GET['countMemberRequest'])) {
     handleGETRequest();
 }
 ?>
