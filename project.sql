@@ -12,121 +12,121 @@ drop table FillsOut cascade constraints;
 drop table Transaction cascade constraints;
 
 create table Account1(
-    accountID           varchar(10) primary key,
-    pointBalance        integer  not null,
-    streetAddress       varchar(100),
-    city                varchar(50),
-    postalCode          varchar(10),
-    country             varchar(50)
+                         accountID           varchar(10) primary key,
+                         pointBalance        integer  not null,
+                         streetAddress       varchar(100),
+                         city                varchar(50),
+                         postalCode          varchar(10),
+                         country             varchar(50)
 );
 grant select on Account1 to public;
 
 create table Account2(
-    postalCode          varchar(10),
-    country             varchar(50),
-    provinceState       varchar(50),
-    primary key (postalCode, country)
+                         postalCode          varchar(10),
+                         country             varchar(50),
+                         provinceState       varchar(50),
+                         primary key (postalCode, country)
 );
 grant select on Account2 to public;
 
 create table CreditCard1(
-    creditCardID        varchar(10) primary key,
-    creditCardNum       char(16) unique not null,
-    accountID           varchar(10) not null,
-    expirationDate      DATE,
-    foreign key (accountID) references Account1(accountID) ON DELETE CASCADE
+                            creditCardID        varchar(10) primary key,
+                            creditCardNum       char(16) unique not null,
+                            accountID           varchar(10) not null,
+                            expirationDate      DATE,
+                            foreign key (accountID) references Account1(accountID) ON DELETE CASCADE
 );
 grant select on CreditCard1 to public;
 
 create table CreditCard2(
-    creditCardNum       char(16) primary key,
-    cardType            varchar(30),
-    cardIssuer          varchar(30)
+                            creditCardNum       char(16) primary key,
+                            cardType            varchar(30),
+                            cardIssuer          varchar(30)
 );
 grant select on CreditCard2 to public;
 
 create table Member(
-    memberID           varchar(10) unique,
-    accountID          varchar(10),
-    memberName         varchar(50),
-    email              varchar(50) unique not null,
-    phone              varchar(50) not null, 
-    birthDate          date,
-    referrerID         varchar(10),
-    primary key (memberID, accountID),
-    foreign key (accountID) references Account1(accountID),
-    foreign key (referrerID) references Member(memberID)      
+                       memberID           varchar(10) unique,
+                       accountID          varchar(10),
+                       memberName         varchar(50),
+                       email              varchar(50) unique not null,
+                       phone              varchar(50) not null,
+                       birthDate          date,
+                       referrerID         varchar(10),
+                       primary key (memberID, accountID),
+                       foreign key (accountID) references Account1(accountID),
+                       foreign key (referrerID) references Member(memberID)
 );
 grant select on Member to public;
 
 create table Merchant(
-    merchantID       varchar(10) primary key,
-    merchantName     varchar(30) not null,
-    joinDate         date,
-    defaultRate      decimal(6,2) not null
+                         merchantID       varchar(10) primary key,
+                         merchantName     varchar(30) not null,
+                         joinDate         date,
+                         defaultRate      decimal(6,2) not null
 );
 grant select on Merchant to public;
 
 create table PromotionOffers(
-    promotionID      varchar(10) primary key,
-    merchantID       varchar(10),
-    promotionRate    decimal(6,2) not null,
-    startDate        date,
-    endDate          date,
-    foreign key (merchantID) references Merchant(merchantID)
+                                promotionID      varchar(10) primary key,
+                                merchantID       varchar(10),
+                                promotionRate    decimal(6,2) not null,
+                                startDate        date,
+                                endDate          date,
+                                foreign key (merchantID) references Merchant(merchantID)
 );
 grant select on PromotionOffers to public;
 
 create table Reward(
-    rewardID           varchar(10) primary key,
-    pointCost          integer  not null,
-    rewardCategory     varchar(30),
-    rewardDescription  varchar(100) not null
+                       rewardID           varchar(10) primary key,
+                       pointCost          integer  not null,
+                       rewardCategory     varchar(30),
+                       rewardDescription  varchar(100) not null
 );
 grant select on Reward to public;
 
 create table Redeems(
-    rewardID          varchar(10),
-    accountID         varchar(10),
-    memberID          varchar(10),
-    dateTime          timestamp not null,
-    primary key (rewardID, accountID, memberID),
-    foreign key (rewardID) references Reward(rewardID) ON DELETE CASCADE,
-    foreign key (accountID, memberID) references Member(accountID, memberID)       
+                        rewardID          varchar(10),
+                        accountID         varchar(10),
+                        memberID          varchar(10),
+                        dateTime          timestamp not null,
+                        primary key (rewardID, accountID, memberID),
+                        foreign key (rewardID) references Reward(rewardID) ON DELETE CASCADE,
+                        foreign key (accountID, memberID) references Member(accountID, memberID)
 );
 grant select on Redeems to public;
 
 create table Survey(
-    surveyID         varchar(10) primary key,
-    pointsValue      integer  not null,
-    expirationDate   date
+                       surveyID         varchar(10) primary key,
+                       pointsValue      integer  not null,
+                       expirationDate   date
 );
 grant select on Survey to public;
 
 create table FillsOut(
-    accountID        varchar(10),
-    memberID         varchar(10),
-    surveyID         varchar(10),
-    dateTime         timestamp not null,
-    primary key (accountID, memberID, surveyID),
-    foreign key (memberID, accountID) references Member(memberID, accountID),
-    foreign key (surveyID) references Survey(surveyID)
+                         accountID        varchar(10),
+                         memberID         varchar(10),
+                         surveyID         varchar(10),
+                         dateTime         timestamp not null,
+                         primary key (accountID, memberID, surveyID),
+                         foreign key (memberID, accountID) references Member(memberID, accountID),
+                         foreign key (surveyID) references Survey(surveyID)
 );
 grant select on FillsOut to public;
 
 create table Transaction(
-    transactionID     varchar(10) primary key,
-    promotionID       varchar(10),
-    merchantID        varchar(10),
-    merchantName      varchar(50)     not null,
-    accountID         varchar(10)     not null,
-    dateTime          timestamp    not null,
-    type              varchar(20)     not null,
-    pointsValue       integer      not null,
-    transactionAmount decimal(6,2) not null,
-    foreign key (promotionID) references PromotionOffers(promotionID),
-    foreign key (merchantID) references Merchant(merchantID),
-    foreign key (accountID) references Account1(accountID)
+                            transactionID     varchar(10) primary key,
+                            promotionID       varchar(10),
+                            merchantID        varchar(10),
+                            merchantName      varchar(50)     not null,
+                            accountID         varchar(10)     not null,
+                            dateTime          timestamp    not null,
+                            type              varchar(20)     not null,
+                            pointsValue       integer      not null,
+                            transactionAmount decimal(6,2) not null,
+                            foreign key (promotionID) references PromotionOffers(promotionID),
+                            foreign key (merchantID) references Merchant(merchantID),
+                            foreign key (accountID) references Account1(accountID)
 );
 grant select on Transaction to public;
 
@@ -205,6 +205,8 @@ into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1002',
 into Redeems (rewardID, accountID, memberID, dateTime) values ('R1004', 'A1003', 'M1003', timestamp '2021-01-17 09:37:12')
 into Redeems (rewardID, accountID, memberID, dateTime) values ('R1004', 'A1004', 'M1004', timestamp '2021-02-13 04:01:56')
 into Redeems (rewardID, accountID, memberID, dateTime) values ('R1001', 'A1005', 'M1005', timestamp '2021-02-21 22:47:41')
+into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1003', 'M1003', timestamp '2021-03-04 21:12:56')
+into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1004', 'M1004', timestamp '2021-03-17 08:36:23')
 select * from dual;
 
 insert all
