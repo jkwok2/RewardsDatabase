@@ -65,7 +65,7 @@ function handleDisplayAdvancedTransactionRequest() {
         }
     }
 
-    $cmdstr .= "FROM Transaction t";
+    $cmdstr .= " FROM Transaction t";
 
     if (!empty($whereFilterArray)) {
         if(!empty($accountNationFilter)) {
