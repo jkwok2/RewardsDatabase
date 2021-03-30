@@ -56,14 +56,14 @@ function handleDisplayAdvancedTransactionRequest() {
 
     $cmdstr = "SELECT * FROM Transaction";
 
-    if(!empty($accountNationFilter)) {
-        $cmdstr .= "NATURAL JOIN ACCOUNT1";
-    }
-    if(!empty($accountNationFilter)) {
-        $cmdstr .= "NATURAL JOIN PROMOTIONOFFERS";
-    }
-
     if (!empty($whereFilterArray)) {
+        if(!empty($accountNationFilter)) {
+            $cmdstr .= "NATURAL JOIN ACCOUNT1";
+        }
+        if(!empty($accountNationFilter)) {
+            $cmdstr .= "NATURAL JOIN PROMOTIONOFFERS";
+        }
+
         $cmdstr .= ' WHERE ' . $whereFilterArray[0];
 
         for($i=1; $i < count($whereFilterArray); $i++) {
