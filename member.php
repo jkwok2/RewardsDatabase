@@ -7,9 +7,9 @@ require 'util.php';
 <h2>Update Member Details</h2>
 <form method="POST" action="member.php"> <!--refresh page when submitted-->
     <input type="hidden" id="updateMemberRequest" name="updateMemberRequest">
-    <p>Enter the ID of the member you wish to update:
+    <p>Enter ID of the member you wish to update:
         <input type="text" size="40" name="accountID"></p>
-    <p>Enter the member's new information (blank values are ignored)</p>
+    <p>Enter member's new information (blank values are ignored)</p>
     <p>New email:
         <input type="text" size="40" name="email"></p>
     <p>New phone:
