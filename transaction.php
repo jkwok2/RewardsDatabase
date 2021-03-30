@@ -35,10 +35,10 @@ require 'util.php';
     <p>Filter by account nationality:
         <input type="text" size="40" name="accountNationFilter"></p>
     <p>Filter by promotion rate % (enter number):
-        <input type="text" size="40" name="promotionRateFilter"></p>
-    <input type="radio" value="<=" name="less than or equal">
-    <input type="radio" value="=" name="equal">
-    <input type="radio" value=">=" name="greater than or equal">
+        <input type="text" size="40" name="promotionRateFilterValue"></p>
+    <input type="radio" value="<=" name="promotionRateFilterEquality">less than or equal
+    <input type="radio" value="=" name="promotionRateFilterEquality">equal
+    <input type="radio" value=">=" name="promotionRateFilterEquality">greater than or equal
     <input type="submit" value="View transactions" name="displayAdvancedTransactions">
 </form>
 
