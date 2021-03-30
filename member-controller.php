@@ -36,16 +36,6 @@ function handleCountMemberRequest() {
     $result = executePlainSQL("SELECT accountID, COUNT(*) FROM Member GROUP BY accountID");
     echo 'calling handleCountMemberRequest()';
     printResult($result);
-    // echo "<table>";
-    // echo "<tr><th>memberID</th><th>Number of Members</th></tr>";
-
-    // while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-    //     echo "<tr><td>" . $row["memberID"] . "</td><td>" . $row["Number of Members"] . "</td></tr>"; //or just use "echo $row[0]"
-    // }
-
-    // echo "</table>";
-
-
 }
 
 // HANDLE ALL POST ROUTES
