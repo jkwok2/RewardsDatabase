@@ -4,22 +4,43 @@ require_once 'util.php';
 function handleUpdateMemberRequest() {
     global $db_conn;
 
+//    $memberID = $_POST['memberID'];
+//    echo 'memberID is ' . $memberID . '<br/>';
+//    $new_email = $_POST['email'];
+//    echo 'email is ' . $new_email . '<br/>';
+//    $new_phone = $_POST['phone'];
+//    echo 'phone is ' . $new_phone . '<br/>';
+//    $cmdstr = "UPDATE Member SET email='" . $new_email ."', phone='" . $new_phone ."' WHERE memberID='". $memberID ."'";
+
     $memberID = $_POST['memberID'];
     echo 'memberID is ' . $memberID . '<br/>';
-    $new_email = $_POST['email'];
-    echo 'email is ' . $new_email . '<br/>';
-    $new_phone = $_POST['phone'];
-    echo 'phone is ' . $new_phone . '<br/>';
+    if (!empty($memberID)) {
+        if (!empty($new_email) && !empty($new_phone)) {
+            $new_email = $_POST['email'];
+            $new_phone = $_POST['phone'];
 
-    $cmdstr = "UPDATE Member SET email='" . $new_email . "', 
-    phone='" . $new_phone . "' 
-    WHERE memberID='" . $memberID ."'";
-    executePlainSQL($cmdstr);
+            echo 'email is ' . $new_email . '<br/>';
+            echo 'phone is ' . $new_phone . '<br/>';
+
+            $cmdstr = "UPDATE Member SET email='" . $new_email . "', phone='" . $new_phone . "' 
+            WHERE memberID='" . $memberID ."'";
+            executePlainSQL($cmdstr);
+        }
+        if (!empty($new_email)) {
+            $new_email = $_POST['email'];
+            $cmdstr = "UPDATE Member SET email='" . $new_email . "' WHERE memberID='" . $memberID ."'";
+            executePlainSQL($cmdstr);
+        }
+        if (empty($new_phone)) {
+            $new_phone = $_POST['phone'];
+            $cmdstr = "UPDATE Member SET phone='" . $new_phone . "' WHERE memberID='" . $memberID ."'";
+            executePlainSQL($cmdstr);
+        }
+    }
     OCICommit($db_conn);
 }
 
 function handleMemberProjectionRequest() {
-    global $db_conn;
     $cmdstr = "SELECT * FROM Member";
     $result = executePlainSQL($cmdstr);
     printResult($result);
