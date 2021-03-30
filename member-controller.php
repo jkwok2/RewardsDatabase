@@ -26,8 +26,14 @@ function handleUpdateMemberRequest() {
 
 function handleMemberProjectionRequest() {
     global $db_conn;
-    $cmdstr = "SELECT * FROM Member";
-    $result = executePlainSQL($cmdstr);
+    $userInputs = $_POST["columns"];
+    $inputString = "";
+
+    foreach($userInputs as $col) {
+        $inputString .= '" . $col . <br/>"' ;
+
+    }
+    $result = executePlainSQL("SELECT $inputSting FROM Member");
     printResult($result);
 }
 
