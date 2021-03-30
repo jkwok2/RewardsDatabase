@@ -37,12 +37,6 @@ function handleMemberProjectionRequest() {
 
 }
 
-function console_log( $data ){
-    echo '<script>';
-    echo 'console.log('. json_encode( $data ) .')';
-    echo '</script>';
-}
-
 function handleCountMemberRequest() {
     $result = executePlainSQL("SELECT accountID, COUNT(*) FROM Member GROUP BY accountID");
     printResult($result);
