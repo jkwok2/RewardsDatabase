@@ -47,7 +47,7 @@ function handleDisplayAdvancedTransactionRequest() {
     $promotionRateFilterValue = $_GET['promotionRateFilterValue'];
     if(!empty($promotionRateFilterValue)) {
         $promotionRateFilterEquality = $_GET['promotionRateFilterEquality'];
-        $whereFilterArray[] = "PROMOTIONRATE" . $promotionRateFilterEquality . $promotionRateFilterValue;
+        $whereFilterArray[] = "p.PROMOTIONRATE" . $promotionRateFilterEquality . $promotionRateFilterValue;
     }
 
     $cmdstr = "SELECT * FROM Transaction";
@@ -57,7 +57,7 @@ function handleDisplayAdvancedTransactionRequest() {
             $cmdstr .= " NATURAL JOIN ACCOUNT1 ";
         }
         if(!empty($accountNationFilter)) {
-            $cmdstr .= " NATURAL JOIN PROMOTIONOFFERS ";
+            $cmdstr .= " NATURAL JOIN PROMOTIONOFFERS p ";
         }
 
         $cmdstr .= ' WHERE ' . $whereFilterArray[0];
