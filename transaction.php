@@ -34,7 +34,7 @@ require 'util.php';
         <b>Instructions: values are case-sensitive! Multiple filters on this form can be applied at once. Blank values are ignored.</b></p>
     <p>Filter by account nationality:
         <input type="text" size="40" name="accountNationFilter"></p>
-    <p>Filter by promotion rate % (enter integer):
+    <p>Filter by promotion rate % (enter number):
     <input type="text" size="40" name="promotionRateFilterValue">
         <br/>
     <input type="radio" value="<=" name="promotionRateFilterEquality">less than or equal

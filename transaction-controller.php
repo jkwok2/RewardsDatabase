@@ -54,7 +54,7 @@ function handleDisplayAdvancedTransactionRequest() {
     }
 
 
-    $cmdstr = "SELECT t.transactionID, t.merchantName, t.type";
+    $cmdstr = "SELECT t.transactionID, t.merchantName, t.type, t.transactionAmount";
 
     if (!empty($whereFilterArray)) {
         if (!empty($accountNationFilter)) {
