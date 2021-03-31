@@ -2,7 +2,13 @@
 <?php
 require 'util.php';
 ?>
-<h1>Transaction Analyzer</h1>
+<link rel="stylesheet" href="style.css">
+<div class="header">
+    <h1>Transaction Analyzer</h1>
+</div>
+<?php
+require 'backButton.php';
+?>
 
 <h2>View Transaction Details</h2>
 <form method="get" action="transaction.php">
@@ -53,7 +59,5 @@ require 'transaction-controller.php';
 
 <br />
 
-<?php
-require 'backButton.php';
-?>
+
 </html>
