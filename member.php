@@ -3,7 +3,10 @@
 require 'util.php';
 ?>
 <link rel="stylesheet" href="style.css">
-<h1>Member Administration</h1>
+<div class="header">
+    <h1>Member Administration</h1>
+</div>
+
 
 <h2>Update Member Details</h2>
 <form method="POST" action="member.php"> <!--refresh page when submitted-->

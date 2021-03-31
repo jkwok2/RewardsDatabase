@@ -3,7 +3,10 @@
 require 'util.php';
 ?>
 <link rel="stylesheet" href="style.css">
-<h1>Account Administration</h1>
+<div class="header">
+    <h1>Account Administration</h1>
+</div>
+
 
 <h2>Insert Account</h2>
 <form method="POST" action="account.php"> <!--refresh page when submitted-->

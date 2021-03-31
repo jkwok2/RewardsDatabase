@@ -5,9 +5,12 @@
 </head>
 
 <body>
+<div class="header">
     <h1>
         Rewards Points Administrator Terminal
     </h1>
+</div>
+
     <h2>
         Choose an option
     </h2>

@@ -3,7 +3,10 @@
 require 'util.php';
 ?>
 <link rel="stylesheet" href="style.css">
-<h1>Transaction Analyzer</h1>
+<div class="header">
+    <h1>Transaction Analyzer</h1>
+</div>
+
 
 <h2>View Transaction Details</h2>
 <form method="get" action="transaction.php">

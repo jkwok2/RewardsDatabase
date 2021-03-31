@@ -3,7 +3,10 @@
 require 'util.php';
 ?>
 <link rel="stylesheet" href="style.css">
-<h1>Manage Rewards</h1>
+<div class="header">
+    <h1>Manage Rewards</h1>
+</div>
+
 
 <h2>Delete Reward</h2>
 <form method="POST" action="reward.php"> <!--refresh page when submitted-->
