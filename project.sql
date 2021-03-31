@@ -90,7 +90,7 @@ create table Redeems(
                         accountID         varchar(10),
                         memberID          varchar(10),
                         dateTime          timestamp not null,
-                        primary key (rewardID, accountID, memberID),
+                        primary key (rewardID, accountID, memberID, dateTime),
                         foreign key (rewardID) references Reward(rewardID) ON DELETE CASCADE,
                         foreign key (accountID, memberID) references Member(accountID, memberID)
 );
