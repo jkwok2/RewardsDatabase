@@ -23,6 +23,7 @@ require 'util.php';
 <h2>Display Selected Columns from the Member Table</h2>
 <form method="POST" action="member.php"> <!--refresh page when submitted-->
     <input type="hidden" id="memberProjectionRequest" name="memberProjectionRequest">
+    <p>Shift+click or ctrl+click (cmd+click for macs) to select multiple columns:</p>
     <p>Select columns to display:
         <select name="columns[]" id="columns" multiple>
             <option value="memberID">memberID</option>
@@ -39,7 +40,7 @@ require 'util.php';
 
 <hr />
 
-<h2>Count Members Associated With Each Account</h2>
+<h2>Count Number of Members per Account</h2>
 <form method="GET" action="member.php"> <!--refresh page when submitted-->
     <p>
         <input type="hidden" id="countMemberRequest" name="countMemberRequest">
