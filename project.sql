@@ -143,7 +143,7 @@ into Account2 (postalCode, country, provinceState) values ('V5Z 3E3', 'Canada', 
 into Account2 (postalCode, country, provinceState) values ('L7A 3M5', 'Canada', 'Ontario')
 into Account2 (postalCode, country, provinceState) values ('M4L 1V3','Canada', 'Ontario')
 into Account2 (postalCode, country, provinceState) values ('H2R 2E7','Canada', 'Ontario')
-into Account2 (postalCode, country, provinceState) values ('90017', 'USA', 'Los Angeles')
+into Account2 (postalCode, country, provinceState) values ('90017', 'USA', 'California')
 select * from dual;
 
 insert all
