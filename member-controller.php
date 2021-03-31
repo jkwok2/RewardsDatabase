@@ -4,11 +4,8 @@ require_once 'util.php';
 function handleUpdateMemberRequest() {
     global $db_conn;
     $memberID = $_POST['memberID'];
-    echo 'memberID is ' . $memberID . '<br/>';
     $new_email = $_POST['email'];
-    echo 'email is ' . $new_email . '<br/>';
     $new_phone = $_POST['phone'];
-    echo 'phone is ' . $new_phone . '<br/>';
     if (!empty($memberID)) {
         if (!empty($new_email) && !empty($new_phone)) {
             $cmdstr = "UPDATE Member SET email='" . $new_email . "', phone='" . $new_phone . "' WHERE memberID='" . $memberID ."'";
