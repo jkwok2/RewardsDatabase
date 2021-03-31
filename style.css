@@ -37,10 +37,10 @@ button {
     color:#ffffff;
     font-family:Arial;
     font-size:17px;
-    padding:12px 324px;
+    padding:12px 24px;
     text-decoration:none;
     text-shadow:0px 1px 0px #144d6e;
-    margin: 24px;
+    margin: 20px;
 }
 button:hover {
     background-color: #3291c9;
