@@ -12,21 +12,21 @@ require 'util.php';
 
 <hr />
 
-<h2>Advanced view and filter options</h2>
+<h2>View records of redeemed rewards</h2>
 <form method="get" action="reward.php">
-    <input type="hidden" id="displayAdvancedTransactionRequest" name="displayAdvancedTransactionRequest">
-    <p>Use the options below to filter your result based on values from other tables<br/>
-        <b>Instructions: values are case-sensitive! Multiple filters on this form can be applied at once. Blank values are ignored.</b></p>
-    <p>Filter by account nationality:
-        <input type="text" size="40" name="accountNationFilter"></p>
-    <p>Filter by promotion rate % (enter number):
-        <input type="text" size="40" name="promotionRateFilterValue">
-        <br/>
-        <input type="radio" value="<=" name="promotionRateFilterEquality">less than or equal
-        <input type="radio" value="=" name="promotionRateFilterEquality" checked>equal
-        <input type="radio" value=">=" name="promotionRateFilterEquality">greater than or equal</p>
-    <input type="submit" value="View transactions" name="displayAdvancedTransactions">
+    <input type="hidden" id="displayRedeemedRequest" name="displayRedeemedRequest">
+    <input type="submit" value="View rewards" name="displayRedeemed">
 </form>
+
+<hr />
+
+<h2>View reward categories redeemed by accounts</h2>
+<form method="get" action="reward.php">
+    <input type="hidden" id="displayRedeemedByAllRequest" name="displayRedeemedByAllRequest">
+    <input type="submit" value="View rewards" name="displayRedeemedByAll">
+</form>
+
+<hr />
 
 <hr />
 <hr />

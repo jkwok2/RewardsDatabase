@@ -1,15 +1,22 @@
 <?php
 require_once 'util.php';
 
-function handleUpdateMemberRequest() {
+function handleDisplayRedeemedRequest() {
     echo "handleUpdateMemberRequest";
+    $cmdstr = "SELECT * FROM Redeems";
+    $result = executePlainSQL($cmdstr);
+    printResult($result);
 }
 
 function handleDisplayRewardsRequest() {
     echo "handleDisplayRewardsRequest";
-    $cmdstr = "SELECT * FROM Rewards";
+    $cmdstr = "SELECT * FROM Reward";
     $result = executePlainSQL($cmdstr);
     printResult($result);
+}
+
+function handleDisplayRedeemedByAllRequest() {
+    echo "handleDisplayRedeemedByAllRequest";
 }
 
 // HANDLE ALL POST ROUTES
@@ -29,8 +36,10 @@ function handleGETRequest() {
     if (connectToDB()) {
         if (array_key_exists('displayRewardsRequest', $_GET)) {
             handleDisplayRewardsRequest();
-        } else if (array_key_exists('displayTuples', $_GET)) {
-            handleDisplayRequest();
+        } else if (array_key_exists('displayRedeemedRequest', $_GET)) {
+            handleDisplayRedeemedRequest();
+        } else if (array_key_exists('displayRedeemedByAllRequest', $_GET)) {
+            handleDisplayRedeemedByAllRequest();
         }
 
         disconnectFromDB();
@@ -40,7 +49,7 @@ function handleGETRequest() {
 if (isset($_POST['updateMemberRequest'])) {
     handlePOSTRequest();
 }
-else if (isset($_GET['displayRewards']) || isset($_GET['displayTupleRequest'])) {
+else if (isset($_GET['displayRewards']) || isset($_GET['displayRedeemed']) || isset($_GET['displayRedeemedByAll'])) {
     handleGETRequest();
 }
 ?>
