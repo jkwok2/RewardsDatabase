@@ -32,7 +32,7 @@ require 'util.php';
             <option value="email">email</option>
             <option value="phone">phone</option>
             <option value="birthDate">birthDate</option>
-            <option value="referralID">referralID</option>
+            <option value="referrerID">referrerID</option>
         </select>
     </p>
     <input type="submit" value="Display" name="displayColumns">
