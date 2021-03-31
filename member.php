@@ -7,9 +7,9 @@ require 'util.php';
 <h2>Update Member Details</h2>
 <form method="POST" action="member.php"> <!--refresh page when submitted-->
     <input type="hidden" id="updateMemberRequest" name="updateMemberRequest">
-    <p>Enter the ID of the member you wish to update:
-        <input type="text" size="40" name="accountID"></p>
-    <p>Enter the member's new information (blank values are ignored)</p>
+    <p>Enter ID of the member you wish to update:
+        <input type="text" size="40" name="memberID"></p>
+    <p>Enter member's new information (blank values are ignored)</p>
     <p>New email:
         <input type="text" size="40" name="email"></p>
     <p>New phone:
@@ -21,18 +21,18 @@ require 'util.php';
 <hr />
 
 <h2>Display Selected Columns from the Member Table</h2>
-<form method="GET" action="member.php"> <!--refresh page when submitted-->
+<form method="POST" action="member.php"> <!--refresh page when submitted-->
     <input type="hidden" id="memberProjectionRequest" name="memberProjectionRequest">
+    <p>Shift+click or ctrl+click (cmd+click for macs) to select multiple columns:</p>
     <p>Select columns to display:
-        <label for="columns"></label>
-        <select name="columns" id="columns" multiple>
+        <select name="columns[]" id="columns" multiple>
             <option value="memberID">memberID</option>
             <option value="accountID">accountID</option>
             <option value="memberName">memberName</option>
             <option value="email">email</option>
             <option value="phone">phone</option>
             <option value="birthDate">birthDate</option>
-            <option value="referralID">referralID</option>
+            <option value="referrerID">referrerID</option>
         </select>
     </p>
     <input type="submit" value="Display" name="displayColumns">
@@ -40,7 +40,7 @@ require 'util.php';
 
 <hr />
 
-<h2>Count Members Associated With Each Account</h2>
+<h2>Count Number of Members per Account</h2>
 <form method="GET" action="member.php"> <!--refresh page when submitted-->
     <p>
         <input type="hidden" id="countMemberRequest" name="countMemberRequest">
@@ -60,3 +60,6 @@ require 'member-controller.php';
 require 'backButton.php';
 ?>
 </html>
+
+
+
