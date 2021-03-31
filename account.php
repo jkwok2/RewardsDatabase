@@ -2,9 +2,15 @@
 <?php
 require 'util.php';
 ?>
-<h1>Account Administration</h1>
+<link rel="stylesheet" href="style.css">
+<div class="header">
+    <h1>Account Administration</h1>
+</div>
+<?php
+require 'backButton.php';
+?>
 
-<h2>Insert Account</h2>
+<h2>Create New Account</h2>
 <form method="POST" action="account.php"> <!--refresh page when submitted-->
     <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
     AccountID: <input type="text" name="accountID"> <br /><br />
@@ -44,8 +50,4 @@ require 'account-controller.php';
 ?>
 
 <br />
-
-<?php
-require 'backButton.php';
-?>
 </html>

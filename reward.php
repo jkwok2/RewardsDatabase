@@ -2,7 +2,13 @@
 <?php
 require 'util.php';
 ?>
-<h1>Manage Rewards</h1>
+<link rel="stylesheet" href="style.css">
+<div class="header">
+    <h1>Manage Rewards</h1>
+</div>
+<?php
+require 'backButton.php';
+?>
 
 <h2>Delete Reward</h2>
 <form method="POST" action="reward.php"> <!--refresh page when submitted-->
@@ -28,7 +34,5 @@ require 'reward-controller.php';
 
 <br />
 
-<?php
-require 'backButton.php';
-?>
+
 </html>
