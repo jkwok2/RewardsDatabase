@@ -9,7 +9,7 @@ require 'util.php';
     <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
     RewardID: <input type="text" name="rewardID"> <br /><br />
 
-    <input type="submit" value="Insert" name="insertSubmit"></p>
+    <input type="submit" value="Delete Reward" name="insertSubmit"></p>
 </form>
 
 <hr />

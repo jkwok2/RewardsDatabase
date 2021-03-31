@@ -16,7 +16,7 @@ function handleInsertRequest() {
     //Getting the values from user and insert data into the table
     $rewardToRemove = $_POST['rewardID'];
 
-    executePlainSQL("DELETE FROM Reward WHERE rewardID = " . $rewardToRemove);
+    executePlainSQL("DELETE FROM Reward WHERE rewardID = " . "'" . $rewardToRemove . "'");
     OCICommit($db_conn);
 }
 
