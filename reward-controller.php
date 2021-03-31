@@ -7,6 +7,9 @@ function handleUpdateMemberRequest() {
 
 function handleDisplayRewardsRequest() {
     echo "handleDisplayRewardsRequest";
+    $cmdstr = "SELECT * FROM Rewards";
+    $result = executePlainSQL($cmdstr);
+    printResult($result);
 }
 
 // HANDLE ALL POST ROUTES
@@ -25,7 +28,7 @@ function handlePOSTRequest() {
 function handleGETRequest() {
     if (connectToDB()) {
         if (array_key_exists('displayRewardsRequest', $_GET)) {
-            handleDisplayAccountDetailsRequest();
+            handleDisplayRewardsRequest();
         } else if (array_key_exists('displayTuples', $_GET)) {
             handleDisplayRequest();
         }
