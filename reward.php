@@ -6,10 +6,10 @@ require 'util.php';
 
 <h2>Delete Reward</h2>
 <form method="POST" action="reward.php"> <!--refresh page when submitted-->
-    <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
+    <input type="hidden" id="deleteReward" name="deleteReward">
     RewardID: <input type="text" name="rewardID"> <br /><br />
 
-    <input type="submit" value="Delete Reward" name="insertSubmit"></p>
+    <input type="submit" value="Delete Reward" name="deleteReward"></p>
 </form>
 
 <hr />
