@@ -6,7 +6,9 @@ require 'util.php';
 <div class="header">
     <h1>Account Administration</h1>
 </div>
-
+<?php
+require 'backButton.php';
+?>
 
 <h2>Create New Account</h2>
 <form method="POST" action="account.php"> <!--refresh page when submitted-->
@@ -48,8 +50,4 @@ require 'account-controller.php';
 ?>
 
 <br />
-
-<?php
-require 'backButton.php';
-?>
 </html>

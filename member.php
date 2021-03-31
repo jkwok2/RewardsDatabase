@@ -6,7 +6,9 @@ require 'util.php';
 <div class="header">
     <h1>Member Administration</h1>
 </div>
-
+<?php
+require 'backButton.php';
+?>
 
 <h2>Update Member Details</h2>
 <form method="POST" action="member.php"> <!--refresh page when submitted-->
@@ -60,9 +62,7 @@ require 'member-controller.php';
 
 <br />
 
-<?php
-require 'backButton.php';
-?>
+
 </html>
 
 
