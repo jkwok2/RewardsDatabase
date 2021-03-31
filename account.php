@@ -8,7 +8,7 @@ require 'util.php';
 </div>
 
 
-<h2>Insert Account</h2>
+<h2>Create New Account</h2>
 <form method="POST" action="account.php"> <!--refresh page when submitted-->
     <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
     AccountID: <input type="text" name="accountID"> <br /><br />
