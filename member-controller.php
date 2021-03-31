@@ -1,5 +1,6 @@
 <?php
 require_once 'util.php';
+
 function handleUpdateMemberRequest() {
     global $db_conn;
     $memberID = $_POST['memberID'];
@@ -18,22 +19,25 @@ function handleUpdateMemberRequest() {
             executePlainSQL($cmdstr);
         }
     }
+    echo 'Member information has been updated successfully.';
     OCICommit($db_conn);
 }
 
 function handleMemberProjectionRequest() {
 
-    global $db_conn;
     $userInputs = $_POST["columns"];
     $inputString = "";
 
-    foreach($_POST[columns] as $col) {
-        $inputString .= $col . "," ;
-
+    if (!isset($_POST["columns"])) {
+        echo 'No columns selected. Please select columns that you want to display.';
+    } else {
+        foreach($userInputs as $col) {
+            $inputString .= $col . "," ;
+        }
+        $inputString = substr($inputString, 0, -1);
+        $result = executePlainSQL("SELECT $inputString FROM Member");
+        printResult($result);
     }
-    $inputString = substr($inputString, 0, -1);
-    $result = executePlainSQL("SELECT $inputString FROM Member");
-    printResult($result);
 
 }
 
