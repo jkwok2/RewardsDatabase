@@ -2,6 +2,7 @@
 <?php
 require 'util.php';
 ?>
+<link rel="stylesheet" href="style.css">
 <h1>Account Administration</h1>
 
 <h2>Insert Account</h2>

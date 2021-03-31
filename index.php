@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>CPSC 304 Group 45 Milestone 4</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>

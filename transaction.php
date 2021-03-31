@@ -2,6 +2,7 @@
 <?php
 require 'util.php';
 ?>
+<link rel="stylesheet" href="style.css">
 <h1>Transaction Analyzer</h1>
 
 <h2>View Transaction Details</h2>

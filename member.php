@@ -2,6 +2,7 @@
 <?php
 require 'util.php';
 ?>
+<link rel="stylesheet" href="style.css">
 <h1>Member Administration</h1>
 
 <h2>Update Member Details</h2>
