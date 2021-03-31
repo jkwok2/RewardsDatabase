@@ -17,8 +17,7 @@ function handleDisplayRewardsRequest() {
 
 function handleDisplayRedeemedByAllRequest() {
     echo "handleDisplayRedeemedByAllRequest";
-    $cmdstr = "SELECT * FROM Reward rwd WHERE NOT EXISTS (SELECT a.accountID FROM Account1 a EXCEPT (SELECT rdm.accountID FROM Redeems rdm WHERE rdm.rewardID=rwd.rewardID))
-";
+    $cmdstr = "SELECT rewardID FROM Reward rwd WHERE NOT EXISTS (SELECT a.accountID FROM Account1 a EXCEPT SELECT rdm.accountID FROM Redeems rdm WHERE rdm.rewardID=rwd.rewardID)";
     $result = executePlainSQL($cmdstr);
     printResult($result);
 }
