@@ -207,6 +207,8 @@ into Redeems (rewardID, accountID, memberID, dateTime) values ('R1004', 'A1004',
 into Redeems (rewardID, accountID, memberID, dateTime) values ('R1001', 'A1005', 'M1005', timestamp '2021-02-21 22:47:41')
 into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1003', 'M1003', timestamp '2021-03-04 21:12:56')
 into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1004', 'M1004', timestamp '2021-03-17 08:36:23')
+into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1001', 'M1001', timestamp '2021-03-21 11:51:38')
+into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1005', 'M1005', timestamp '2021-03-24 17:34:15')
 select * from dual;
 
 insert all
