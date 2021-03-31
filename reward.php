@@ -4,23 +4,17 @@ require 'util.php';
 ?>
 <h1>Manage Rewards</h1>
 
-<h2>Insert Account</h2>
+<h2>Delete Reward</h2>
 <form method="POST" action="reward.php"> <!--refresh page when submitted-->
     <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
-    AccountID: <input type="text" name="accountID"> <br /><br />
-    Starting Points Balance: <input type="text" name="pointsBalance"> <br /><br />
-    Street Address: <input type="text" name="streetAddress"> <br /><br />
-    City: <input type="text" name="city"> <br /><br />
-    Postal Code: <input type="text" name="postalCode"> <br /><br />
-    Country: <input type="text" name="country"> <br /><br />
-    Province/State: <input type="text" name="provinceState"> <br /><br />
+    RewardID: <input type="text" name="rewardID"> <br /><br />
 
     <input type="submit" value="Insert" name="insertSubmit"></p>
 </form>
 
 <hr />
 
-<h2>Display Accounts</h2>
+<h2>Display Rewards</h2>
 <form method="GET" action="reward.php"> <!--refresh page when submitted-->
     <input type="hidden" id="displayTupleRequest" name="displayTupleRequest">
     <input type="submit" name="displayTuples"></p>

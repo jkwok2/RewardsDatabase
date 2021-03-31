@@ -64,7 +64,7 @@ function handleGETRequest() {
     }
 }
 
-if (isset($_POST['deleteAccount']) || isset($_POST['insertSubmit'])) {
+if (isset($_POST['insertSubmit'])) {
     handlePOSTRequest();
 } else if (isset($_GET['displayAccountRequest']) || isset($_GET['displayTupleRequest'])) {
     handleGETRequest();

@@ -2,7 +2,7 @@
 <?php
 require 'util.php';
 ?>
-<h1>Account Administration (Test)</h1>
+<h1>Account Administration</h1>
 
 <h2>Insert Account</h2>
 <form method="POST" action="account.php"> <!--refresh page when submitted-->
@@ -28,14 +28,14 @@ require 'util.php';
 
 <hr />
 
-<h2>Reset</h2>
+<!-- <h2>Reset</h2>
     <p>If you wish to reset the table press on the reset button. If this is the first time you're running this page, you MUST use reset</p>
 
 <form method="POST" action="account.php">
-    <!-- if you want another page to load after the button is clicked, you have to specify that page in the action parameter -->
+    if you want another page to load after the button is clicked, you have to specify that page in the action parameter
     <input type="hidden" id="resetTablesRequest" name="resetTablesRequest">
     <p><input type="submit" value="Reset" name="reset"></p>
-</form>
+</form> -->
 
 <!--resulting output from forms will appear here-->
 <h3>Output</h3>
