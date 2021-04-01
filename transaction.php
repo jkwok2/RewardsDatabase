@@ -54,8 +54,8 @@ require 'backButton.php';
 <h2>View average purchase amount per account having at least x # of purchases</h2>
 <form method="get" action="transaction.php">
     <input type="hidden" id="displayAvgPurchaseByAccRequest" name="displayAvgPurchaseByAccRequest">
-        <p>Enter a number below to show only accounts that have made at least that many purchases:<br/>
-            <b>NOTE: Accounts with 0 purchases on record will not display</b>
+        <p>Enter a number below to show only accounts that have made at least that many purchases<br/>
+            <b>NOTE:</b> accounts with 0 purchases on record will not display in results <br/>
         <input type="text" size="40" name="averagePurchaseByAccFilter" value="1"></p>
 
     <input type="submit" value="View average purchases" name="averagePurchaseByAcc">
