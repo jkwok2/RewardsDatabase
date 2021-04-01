@@ -33,7 +33,7 @@ function handleInsertRequest() {
     OCICommit($db_conn);
 }
 
-function handleCountMemberRequest() {
+function handleAvgAccBalanceRequest() {
     $result = executePlainSQL("SELECT country, AVG(pointBalance) FROM (SELECT * FROM Account1 WHERE Account1.pointBalance >= 0) WHERE country = 'USA' OR country = 'Canada' GROUP BY country");
     echo "<table><tr><th>Country </th><th>Avg Balance of Accounts</th></tr></table>";
     printResult($result);
@@ -59,7 +59,7 @@ function handleGETRequest() {
         if (array_key_exists('displayTuples', $_GET)) {
             handleDisplayRequest();
         } else if (array_key_exists('avgPointsBalance', $_GET)) {
-            handleCountMemberRequest();
+            handleAvgAccBalanceRequest();
         }
         disconnectFromDB();
     }
