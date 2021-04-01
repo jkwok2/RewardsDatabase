@@ -25,10 +25,10 @@ function handleUpdateMemberRequest() {
 
 function handleMemberProjectionRequest() {
 
-    $userInputs = $_POST["columns"];
+    $userInputs = $_GET["columns"];
     $inputString = "";
 
-    if (!isset($_POST["columns"])) {
+    if (!isset($_GET["columns"])) {
         echo 'No columns selected. Please select columns that you want to display.';
     } else {
         foreach($userInputs as $col) {
@@ -53,8 +53,6 @@ function handlePOSTRequest() {
     if (connectToDB()) {
         if (array_key_exists('updateMemberRequest', $_POST)) {
             handleUpdateMemberRequest();
-        } else if (array_key_exists('memberProjectionRequest', $_POST)) {
-            handleMemberProjectionRequest();
         }
         disconnectFromDB();
     }
@@ -65,14 +63,16 @@ function handleGETRequest() {
     if (connectToDB()) {
         if (array_key_exists('countMembers', $_GET)) {
             handleCountMemberRequest();
+        } else if (array_key_exists('displayColumns', $_GET)) {
+            handleMemberProjectionRequest();
         }
         disconnectFromDB();
     }
 }
-if (isset($_POST['updateMember']) || isset($_POST['displayColumns'])) {
+if (isset($_POST['updateMember'])) {
     handlePOSTRequest();
 }
-else if (isset($_GET['countMemberRequest'])) {
+else if (isset($_GET['countMemberRequest']) || isset($_GET['memberProjectionRequest'])) {
     handleGETRequest();
 }
 ?>
