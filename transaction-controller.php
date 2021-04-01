@@ -8,6 +8,8 @@ function handleDisplayAvgPurchaseByAccRequest() {
     echo "handleDisplayAvgPurchaseByAccRequest";
     $cmdstr = "SELECT accountID, AVG(transactionAmount) FROM Transaction WHERE type='purchase' GROUP BY accountID HAVING COUNT(*) >= $minPurchaseNum";
     $result = executePlainSQL($cmdstr);
+
+    echo "<table><tr><th>Account ID</th><th>Purchase Average ($)</th></tr></table>";
     printResult($result);
 
 }
