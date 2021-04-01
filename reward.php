@@ -12,9 +12,9 @@ require 'backButton.php';
 
 <h2>Delete Reward</h2>
 <form method="POST" action="reward.php"> <!--refresh page when submitted-->
-    <b>WARNING: deleting a reward will also delete ALL redeem records associated with that reward</b><br/>
+    <p><b>WARNING: deleting a reward will also delete ALL redemption records for that reward</b></p>
     <input type="hidden" id="deleteReward" name="deleteReward">
-    Enter RewardID to delete: <input type="text" name="rewardID"> <br /><br />
+    Enter reward ID to delete: <input type="text" name="rewardID"> <br /><br />
 
     <input type="submit" value="Delete Reward" name="deleteReward"></p>
 </form>
