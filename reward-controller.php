@@ -58,9 +58,9 @@ function handleGETRequest() {
     }
 }
 
-if (isset($_POST['deleteAccount']) || isset($_POST['deleteReward'])) {
+if (isset($_POST['deleteReward'])) {
     handlePOSTRequest();
-} else if (isset($_GET['displayRedeemed']) || isset($_GET['displayTupleRequest'])) {
+} else if (isset($_GET['displayRedeemed']) || isset($_GET['displayRedeemedByAll']) || isset($_GET['displayTupleRequest'])) {
     handleGETRequest();
 }
 ?>
