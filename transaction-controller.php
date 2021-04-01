@@ -1,6 +1,18 @@
 <?php
 require_once 'util.php';
 
+function handleDisplayAvgPurchaseByAccRequest() {
+    global $db_conn;
+    $minPurchaseNum = $_GET['averagePurchaseByAccFilter'];
+
+    $cmdstr = "SELECT accountID, AVG(transactionAmount) FROM Transaction WHERE type='purchase' GROUP BY accountID HAVING COUNT(*) >= $minPurchaseNum";
+    $result = executePlainSQL($cmdstr);
+
+    echo "<table><tr><th>Account ID</th><th>Purchase Average ($)</th></tr></table>";
+    printResult($result);
+
+}
+
 function handleDisplayTransactionRequest() {
     global $db_conn;
 
@@ -77,7 +89,6 @@ function handleDisplayAdvancedTransactionRequest() {
 
         $cmdstr .= " WHERE ";
 
-        //TODO
         $cmdstr .= $whereFilterMatchArray[0];
         for($i=1; $i < count($whereFilterArray); $i++) {
             $cmdstr .= ' AND ' . $whereFilterMatchArray[$i];
@@ -112,8 +123,8 @@ function handleGETRequest() {
             handleDisplayTransactionRequest();
         } else if (array_key_exists('displayAdvancedTransactions', $_GET)) {
             handleDisplayAdvancedTransactionRequest();
-        } else if (array_key_exists('displayAccountMembers', $_GET)) {
-            handleDisplayAccountMembersRequest();
+        } else if (array_key_exists('displayAvgPurchaseByAccRequest', $_GET)) {
+            handleDisplayAvgPurchaseByAccRequest();
         }
 
         disconnectFromDB();
@@ -122,7 +133,7 @@ function handleGETRequest() {
 
 if (isset($_POST['deleteAccount'])) {
     handlePOSTRequest();
-} else if (isset($_GET['displayTransactionRequest']) || isset($_GET['displayAdvancedTransactionRequest'])) {
+} else if (isset($_GET['displayTransactionRequest']) || isset($_GET['averagePurchaseByAcc']) || isset($_GET['displayAdvancedTransactionRequest'])) {
     handleGETRequest();
 }
 ?>

@@ -18,6 +18,6 @@
 <h3><a href="member.php" class="menu-link">Administrate Members</a></h3>
 <!--    <h3><a href="point.php"> Points Business Analytics</a></h3>-->
 <h3><a href="transaction.php" class="menu-link">Analyze Transactions</a></h3>
-<h3><a href="reward.php" class="menu-link">Rewards Business Analytics</a></h3>
+<h3><a href="reward.php" class="menu-link">Manage Rewards</a></h3>
 </body>
 <?php

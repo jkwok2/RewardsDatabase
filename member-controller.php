@@ -43,6 +43,7 @@ function handleMemberProjectionRequest() {
 
 function handleCountMemberRequest() {
     $result = executePlainSQL("SELECT accountID, COUNT(*) FROM Member GROUP BY accountID");
+    echo "<table><tr><th>Account ID</th><th># of Members in Account</th></tr></table>";
     printResult($result);
 }
 
