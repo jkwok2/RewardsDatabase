@@ -136,7 +136,7 @@ into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country
 into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1003', 3000, '500 Kingston Rd', 'Toronto', 'M4L 1V3', 'Canada')
 into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1004', 4000, '7503 Rue St Denis', 'Montreal', 'H2R 2E7', 'Canada')
 into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1005', 500, '3124 Doctors Drive', 'Los Angeles', '90017', 'USA')
-into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1006', 800, '157 West 57th St.', 'New York', '10014', 'USA')
+into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1006', 800, '157 West 57th St.', 'New York', '10019', 'USA')
 into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1007', 1500, '7 Hickson Road', 'The Rocks', '2000', 'Australia')
 select * from dual;
 
