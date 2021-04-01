@@ -5,7 +5,6 @@ function handleDisplayAvgPurchaseByAccRequest() {
     global $db_conn;
     $minPurchaseNum = $_GET['averagePurchaseByAccFilter'];
 
-    echo "handleDisplayAvgPurchaseByAccRequest";
     $cmdstr = "SELECT accountID, AVG(transactionAmount) FROM Transaction WHERE type='purchase' GROUP BY accountID HAVING COUNT(*) >= $minPurchaseNum";
     $result = executePlainSQL($cmdstr);
 
