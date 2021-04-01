@@ -27,7 +27,7 @@ require 'backButton.php';
 <hr />
 
 <h2>Display Selected Columns from the Member Table</h2>
-<form method="POST" action="member.php"> <!--refresh page when submitted-->
+<form method="GET" action="member.php"> <!--refresh page when submitted-->
     <input type="hidden" id="memberProjectionRequest" name="memberProjectionRequest">
     <p>Shift+click or ctrl+click (cmd+click for macs) to select multiple columns:</p>
     <p>Select columns to display:
