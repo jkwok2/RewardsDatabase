@@ -3,8 +3,13 @@ require_once 'util.php';
 
 function handleDisplayAvgPurchaseByAccRequest() {
     global $db_conn;
+    $minPurchaseNum = $_GET['averagePurchaseByAccFilter'];
 
     echo "handleDisplayAvgPurchaseByAccRequest";
+    $cmdstr = "SELECT accountID, AVG(transactionAmount) FROM Transaction WHERE type='purchase' GROUP BY accountID HAVING COUNT(*) >= $minPurchaseNum";
+    $result = executePlainSQL($cmdstr);
+    printResult($result);
+
 }
 
 function handleDisplayTransactionRequest() {
@@ -83,7 +88,6 @@ function handleDisplayAdvancedTransactionRequest() {
 
         $cmdstr .= " WHERE ";
 
-        //TODO
         $cmdstr .= $whereFilterMatchArray[0];
         for($i=1; $i < count($whereFilterArray); $i++) {
             $cmdstr .= ' AND ' . $whereFilterMatchArray[$i];
