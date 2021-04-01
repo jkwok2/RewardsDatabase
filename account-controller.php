@@ -34,7 +34,7 @@ function handleInsertRequest() {
 }
 
 function handleAvgAccBalanceRequest() {
-    $result = executePlainSQL("SELECT country, AVG(pointBalance) FROM (SELECT * FROM Account1 WHERE Account1.pointBalance >= 0) WHERE country = 'USA' OR country = 'Canada' GROUP BY country");
+    $result = executePlainSQL("SELECT country, AVG(pointBalance) FROM (SELECT * FROM Account1 WHERE Account1.pointBalance > 0) WHERE country = 'USA' OR country = 'Canada' GROUP BY country");
     echo "<table><tr><th>Country </th><th>Avg Balance of Accounts</th></tr></table>";
     printResult($result);
 }
