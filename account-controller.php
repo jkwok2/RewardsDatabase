@@ -33,6 +33,12 @@ function handleInsertRequest() {
     OCICommit($db_conn);
 }
 
+function handleAvgAccBalanceRequest() {
+    $result = executePlainSQL("SELECT country, AVG(pointBalance) FROM (SELECT * FROM Account1 WHERE Account1.pointBalance > 0) WHERE country = 'USA' OR country = 'Canada' GROUP BY country");
+    echo "<table><tr><th>Country </th><th>Avg Balance of Accounts</th></tr></table>";
+    printResult($result);
+}
+
 
 // HANDLE ALL POST ROUTES
 // A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
@@ -52,15 +58,16 @@ function handleGETRequest() {
     if (connectToDB()) {
         if (array_key_exists('displayTuples', $_GET)) {
             handleDisplayRequest();
+        } else if (array_key_exists('avgPointsBalance', $_GET)) {
+            handleAvgAccBalanceRequest();
         }
-
         disconnectFromDB();
     }
 }
 
 if (isset($_POST['insertSubmit'])) {
     handlePOSTRequest();
-} else if (isset($_GET['displayAccountRequest']) || isset($_GET['displayTupleRequest'])) {
+} else if (isset($_GET['displayAccountRequest']) || isset($_GET['displayTupleRequest']) || isset($_GET['avgBalanceRequest'])) {
     handleGETRequest();
 }
 ?>
