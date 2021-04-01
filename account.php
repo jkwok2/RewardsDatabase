@@ -34,6 +34,15 @@ require 'backButton.php';
 
 <hr />
 
+<h2>Determine the Average Points Balance of Accounts in the US and Canada with a non-Zero Balance (Are Active)</h2>
+<form method="GET" action="account.php"> <!--refresh page when submitted-->
+    <p>
+        <input type="hidden" id="countMemberRequest" name="countMemberRequest">
+        <input type="submit" name="countMembers"></p>
+</form>
+
+<hr />
+
 <!-- <h2>Reset</h2>
     <p>If you wish to reset the table press on the reset button. If this is the first time you're running this page, you MUST use reset</p>
 
