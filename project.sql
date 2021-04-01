@@ -131,23 +131,27 @@ create table Transaction(
 grant select on Transaction to public;
 
 insert all
-    into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1001', 0, '3308 Ast St.', 'Vancouver', 'V5Z 3E3', 'Canada')
+into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1001', 1000, '3308 Ast St.', 'Vancouver', 'V5Z 3E3', 'Canada')
 into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1002', 0, '374 Brisdale Dr', 'Brampton', 'L7A 3M5', 'Canada')
-into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1003', 0, '500 Kingston Rd', 'Toronto', 'M4L 1V3', 'Canada')
-into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1004', 0, '7503 Rue St Denis', 'Montreal', 'H2R 2E7', 'Canada')
-into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1005', 0, '3124 Doctors Drive', 'Los Angeles', '90017', 'USA')
+into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1003', 3000, '500 Kingston Rd', 'Toronto', 'M4L 1V3', 'Canada')
+into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1004', 4000, '7503 Rue St Denis', 'Montreal', 'H2R 2E7', 'Canada')
+into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1005', 500, '3124 Doctors Drive', 'Los Angeles', '90017', 'USA')
+into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1006', 800, '157 West 57th St.', 'New York', '10019', 'USA')
+into Account1 (accountID, pointBalance, streetAddress, city, postalCode, country) values ('A1007', 1500, '7 Hickson Road', 'The Rocks', '2000', 'Australia')
 select * from dual;
 
 insert all
-    into Account2 (postalCode, country, provinceState) values ('V5Z 3E3', 'Canada', 'British Columbia')
+into Account2 (postalCode, country, provinceState) values ('V5Z 3E3', 'Canada', 'British Columbia')
 into Account2 (postalCode, country, provinceState) values ('L7A 3M5', 'Canada', 'Ontario')
 into Account2 (postalCode, country, provinceState) values ('M4L 1V3','Canada', 'Ontario')
 into Account2 (postalCode, country, provinceState) values ('H2R 2E7','Canada', 'Ontario')
 into Account2 (postalCode, country, provinceState) values ('90017', 'USA', 'California')
+into Account2 (postalCode, country, provinceState) values ('10019', 'USA', 'New York')
+into Account2 (postalCode, country, provinceState) values ('2000', 'Australia', 'NSW')
 select * from dual;
 
 insert all
-    into CreditCard1 (creditCardID, creditCardNum, accountID, expirationDate) values ('C1001', '4147382978379182', 'A1001', DATE '2025-01-01')
+into CreditCard1 (creditCardID, creditCardNum, accountID, expirationDate) values ('C1001', '4147382978379182', 'A1001', DATE '2025-01-01')
 into CreditCard1 (creditCardID, creditCardNum, accountID, expirationDate) values ('C1002', '5214231107639819', 'A1002', DATE '2023-03-01')
 into CreditCard1 (creditCardID, creditCardNum, accountID, expirationDate) values ('C1003', '5214232637822867', 'A1003', DATE '2022-03-01')
 into CreditCard1 (creditCardID, creditCardNum, accountID, expirationDate) values ('C1004', '3413741564427891', 'A1004', DATE '2022-02-01')
@@ -155,7 +159,7 @@ into CreditCard1 (creditCardID, creditCardNum, accountID, expirationDate) values
 select * from dual;
 
 insert all
-    into CreditCard2 (creditCardNum, cardType, cardIssuer) values ('4147382978379182', 'visa', 'Royal Bank of Canada')
+into CreditCard2 (creditCardNum, cardType, cardIssuer) values ('4147382978379182', 'visa', 'Royal Bank of Canada')
 into CreditCard2 (creditCardNum, cardType, cardIssuer) values ('5214231107639819', 'visa', 'TD Canada Trust')
 into CreditCard2 (creditCardNum, cardType, cardIssuer) values ('5214232637822867', 'mastercard', 'TD Canada Trust')
 into CreditCard2 (creditCardNum, cardType, cardIssuer) values ('3413741564427891', 'mastercard', 'Scotia Bank Canada')
