@@ -37,8 +37,8 @@ require 'backButton.php';
 <h2>Determine the Average Points Balance of Accounts in the US and Canada with a non-Zero Balance (Are Active)</h2>
 <form method="GET" action="account.php"> <!--refresh page when submitted-->
     <p>
-        <input type="hidden" id="countMemberRequest" name="countMemberRequest">
-        <input type="submit" name="countMembers"></p>
+        <input type="hidden" id="avgBalanceRequest" name="avgBalanceRequest">
+        <input type="submit" name="avgPointsBalance"></p>
 </form>
 
 <hr />

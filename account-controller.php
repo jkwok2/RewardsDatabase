@@ -58,7 +58,7 @@ function handleGETRequest() {
     if (connectToDB()) {
         if (array_key_exists('displayTuples', $_GET)) {
             handleDisplayRequest();
-        } else if (array_key_exists('countMembers', $_GET)) {
+        } else if (array_key_exists('avgPointsBalance', $_GET)) {
             handleCountMemberRequest();
         }
         disconnectFromDB();
@@ -67,7 +67,7 @@ function handleGETRequest() {
 
 if (isset($_POST['insertSubmit'])) {
     handlePOSTRequest();
-} else if (isset($_GET['displayAccountRequest']) || isset($_GET['displayTupleRequest']) || isset($_GET['countMemberRequest'])) {
+} else if (isset($_GET['displayAccountRequest']) || isset($_GET['displayTupleRequest']) || isset($_GET['avgBalanceRequest'])) {
     handleGETRequest();
 }
 ?>
