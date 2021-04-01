@@ -4,7 +4,7 @@ require 'util.php';
 ?>
 <link rel="stylesheet" href="style.css">
 <div class="header">
-    <h1>Manage Rewards</h1>
+    <h1>Rewards Manager</h1>
 </div>
 <?php
 require 'backButton.php';
@@ -25,6 +25,25 @@ require 'backButton.php';
     <input type="hidden" id="displayTupleRequest" name="displayTupleRequest">
     <input type="submit" name="displayTuples"></p>
 </form>
+
+<hr />
+
+<h2>View records of redeemed rewards</h2>
+<form method="get" action="reward.php">
+    <input type="hidden" id="displayRedeemedRequest" name="displayRedeemedRequest">
+    <input type="submit" value="View rewards" name="displayRedeemed">
+</form>
+
+<hr />
+
+<h2>View reward categories redeemed by accounts</h2>
+<form method="get" action="reward.php">
+    <input type="hidden" id="displayRedeemedByAllRequest" name="displayRedeemedByAllRequest">
+    <input type="submit" value="View rewards" name="displayRedeemedByAll">
+</form>
+
+<hr />
+<hr />
 
 <!--resulting output from forms will appear here-->
 <h3>Output</h3>
