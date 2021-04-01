@@ -12,9 +12,9 @@ require 'backButton.php';
 
 <h2>Delete Reward</h2>
 <form method="POST" action="reward.php"> <!--refresh page when submitted-->
-    <b>WARNING: deleting a reward will also delete all redeem records associated with that reward</b>
+    <b>WARNING: deleting a reward will also delete ALL redeem records associated with that reward</b><br/>
     <input type="hidden" id="deleteReward" name="deleteReward">
-    RewardID: <input type="text" name="rewardID"> <br /><br />
+    Enter RewardID to delete: <input type="text" name="rewardID"> <br /><br />
 
     <input type="submit" value="Delete Reward" name="deleteReward"></p>
 </form>
@@ -29,7 +29,7 @@ require 'backButton.php';
 
 <hr />
 
-<h2>View records of redeemed rewards</h2>
+<h2>View Records of Redeemed Rewards</h2>
 <form method="get" action="reward.php">
     <input type="hidden" id="displayRedeemedRequest" name="displayRedeemedRequest">
     <input type="submit" value="View rewards" name="displayRedeemed">
@@ -37,7 +37,7 @@ require 'backButton.php';
 
 <hr />
 
-<h2>View reward categories redeemed by accounts</h2>
+<h2>View Rewards Redeemed by All Accounts</h2>
 <form method="get" action="reward.php">
     <input type="hidden" id="displayRedeemedByAllRequest" name="displayRedeemedByAllRequest">
     <input type="submit" value="View rewards" name="displayRedeemedByAll">
