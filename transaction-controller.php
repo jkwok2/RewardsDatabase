@@ -1,6 +1,12 @@
 <?php
 require_once 'util.php';
 
+function handleDisplayAvgPurchaseByAccRequest() {
+    global $db_conn;
+
+    echo "handleDisplayAvgPurchaseByAccRequest";
+}
+
 function handleDisplayTransactionRequest() {
     global $db_conn;
 
@@ -112,8 +118,8 @@ function handleGETRequest() {
             handleDisplayTransactionRequest();
         } else if (array_key_exists('displayAdvancedTransactions', $_GET)) {
             handleDisplayAdvancedTransactionRequest();
-        } else if (array_key_exists('displayAccountMembers', $_GET)) {
-            handleDisplayAccountMembersRequest();
+        } else if (array_key_exists('displayAvgPurchaseByAccRequest', $_GET)) {
+            handleDisplayAvgPurchaseByAccRequest();
         }
 
         disconnectFromDB();
@@ -122,7 +128,7 @@ function handleGETRequest() {
 
 if (isset($_POST['deleteAccount'])) {
     handlePOSTRequest();
-} else if (isset($_GET['displayTransactionRequest']) || isset($_GET['displayAdvancedTransactionRequest'])) {
+} else if (isset($_GET['displayTransactionRequest']) || isset($_GET['averagePurchaseByAcc']) || isset($_GET['displayAdvancedTransactionRequest'])) {
     handleGETRequest();
 }
 ?>
