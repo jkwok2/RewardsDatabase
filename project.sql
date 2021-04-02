@@ -172,8 +172,8 @@ into Member (memberID, accountID, memberName, email, phone, birthDate, referrerI
 into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1003', 'A1003', 'Charles M. Freeman','charles@gmail.com', '604-435-5767', DATE '1977-10-07', 'M1002')
 into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1004', 'A1004', 'Tracy G. Davis', 'tracy@gmail.com', '705-440-7929', DATE '1989-04-15', 'M1003')
 into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1005', 'A1005', 'Leonard S. Cass', 'leonard@gmail.com', '281-791-2248', DATE '2000-03-13', 'M1001')
-into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1006', 'A1003', 'Laura W Simmons','coralie.torp@gmail.com', '701-326-3675', DATE '1972-08-20', null)
-into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1007', 'A1001', 'Justin Smith', 'justinsmith@gmail.com', '281-464-2248', DATE '1992-06-29', null)
+into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1006', 'A1006', 'Laura W Simmons','coralie.torp@gmail.com', '701-326-3675', DATE '1972-08-20', null)
+into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1007', 'A1007', 'Justin Smith', 'justinsmith@gmail.com', '281-464-2248', DATE '1992-06-29', null)
 into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1008', 'A1001', 'John Smith', 'johnsmith@gmail.com', '202-791-2248', DATE '2000-07-27', null)
 into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1009', 'A1002', 'Alison Liu', 'alison.liu@gmail.com','281-791-2248', DATE '1998-03-13', 'M1007')
 into Member (memberID, accountID, memberName, email, phone, birthDate, referrerID) values ('M1010', 'A1004', 'David Barrett', 'david.barrett@gmail.com', '908-992-2248', DATE '1995-06-13', 'M1001')
@@ -213,6 +213,8 @@ into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1003',
 into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1004', 'M1004', timestamp '2021-03-17 08:36:23')
 into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1001', 'M1001', timestamp '2021-03-21 11:51:38')
 into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1005', 'M1005', timestamp '2021-03-24 17:34:15')
+into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1006', 'M1006', timestamp '2021-03-25 12:51:38')
+into Redeems (rewardID, accountID, memberID, dateTime) values ('R1003', 'A1007', 'M1007', timestamp '2021-03-25 19:34:15')
 select * from dual;
 
 insert all
