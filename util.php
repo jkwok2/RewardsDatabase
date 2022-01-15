@@ -63,7 +63,7 @@ See the sample code below for how this function is used */
             //echo $val;
             //echo "<br>".$bind."<br>";
             OCIBindByName($statement, $bind, $val);
-            unset ($val); //make sure you do not remove this. Otherwise $val will remain in an array object wrapper which will not be recognized by Oracle as a proper datatype
+            unset($val); //make sure you do not remove this. Otherwise $val will remain in an array object wrapper which will not be recognized by Oracle as a proper datatype
         }
 
         $r = OCIExecute($statement, OCI_DEFAULT);
@@ -85,7 +85,7 @@ function printResult($result)
         $rowResult = "<tr><td>";
         $keys = array_keys($row);
 
-        for($i=0; $i < count($keys); $i+=2) {
+        for ($i = 0; $i < count($keys); $i += 2) {
             $rowResult .= $row[$keys[$i]] . "</td><td>";
         }
 
@@ -101,8 +101,8 @@ function connectToDB()
 
     // Your username is ora_(CWL_ID) and the password is a(student number). For example,
     // ora_platypus is the username and a12345678 is the password.
-     $db_conn = OCILogon("ora_wjaustin", "a82785106", "dbhost.students.cs.ubc.ca:1522/stu");
-//    $db_conn = OCILogon("ora_kwok95", "a32713125", "dbhost.students.cs.ubc.ca:1522/stu");
+
+    $db_conn = OCILogon("ora_kwok95", "a32713125", "dbhost.students.cs.ubc.ca:1522/stu");
 
     if ($db_conn) {
         debugAlertMessage("Database is Connected");
@@ -122,4 +122,3 @@ function disconnectFromDB()
     debugAlertMessage("Disconnect from Database");
     OCILogoff($db_conn);
 }
-?>
